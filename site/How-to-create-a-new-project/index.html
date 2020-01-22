@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>HowTo create a new project - Wiki</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "HowTo create a new project";
+    var mkdocs_page_input_path = "How-to-create-a-new-project.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Wiki</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Introduction/">About</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Settings/">Settings</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Command-language/">Command language</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">HowTo create a new project</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#how-to-create-a-new-project">How to create a new project</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#useful-links">Useful links</a></li>
+        
+            <li><a class="toctree-l3" href="#tip">Tip</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Wiki</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>HowTo create a new project</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="how-to-create-a-new-project">How to create a new project</h1>
+<p>The easiest way to create a new goGPS project is by using the provided GUI or copying another existing project.</p>
+<p>Open the goGPS interface by executing <code>goGPS</code> in the MATLAB Command Window.</p>
+<p><img alt="Menu Project New" src="https://github.com/goGPS-Project/goGPS_graphics/blob/master/user_manual/menu_new_prj.png?raw=true" /></p>
+<ul>
+<li>From the <code>Menu</code> choose <code>Project</code> -&gt; <code>New</code></li>
+</ul>
+<p>goGPS will open this window:</p>
+<p><img alt="Create New Project GUI" src="https://github.com/goGPS-Project/goGPS_graphics/blob/master/user_manual/new_prj.png?raw=true" /></p>
+<p>Fill all the fields.</p>
+<ol>
+<li>
+<p><strong>Project Time</strong> - Select the type of project that you want to create, depending on this choice the settings of the new project will be adjusted to a suggested configuration. The possible choices are four:</p>
+<ol>
+<li>PPP Precise Point Positioning</li>
+<li>NET (short baselines) no iono - no tropo</li>
+<li>NET (medium baselines) no iono</li>
+<li>NET (long baselines) iono - free network</li>
+</ol>
+</li>
+<li>
+<p><strong>Where to create</strong> - select the directory that will contain the new project folder</p>
+</li>
+<li><strong>Project Name</strong> - Provide a name for the new project (this will be also the name of the project folder)</li>
+<li>
+<p><strong>Observations folder</strong> - select the directory in which the observations are stored, a subfolder structure can be present (e.g. <code>RINEX/YEAR/DOY/RINEX_FILE_NAME.YYO</code>) and the operation to perform:</p>
+<ol>
+<li><strong>Copy</strong> the observations folder into the new project</li>
+<li><strong>Move</strong> the observations folder into the new project</li>
+<li><strong>Keep</strong> observations in the current folder</li>
+<li>Do not add any receiver now</li>
+<li>Press "Create New Project". If no errors will occur, the project will be created and the goGPS interface for editing settings will be refreshed with the new parameters.</li>
+</ol>
+</li>
+</ol>
+<p>At this point, the new project can be customized and executed.</p>
+<h2 id="useful-links"><strong>Useful links</strong></h2>
+<ul>
+<li><a href="https://github.com/goGPS-Project/goGPS_MATLAB/wiki/Settings">Wiki settings page</a> - for the meaning of all the parameters</li>
+<li><a href="https://github.com/goGPS-Project/goGPS_MATLAB/wiki/Command-language">Wiki Command language page</a> - for a description of all the available commands</li>
+</ul>
+<h2 id="tip">Tip</h2>
+<p>A goGPS project is usually stored in a folder with a fixed structure, although all the directories could be changed in the settings file, we suggest to keep the original structure (see the section <a href="https://github.com/goGPS-Project/goGPS_MATLAB/wiki/Installation/_edit#directories-of-gogps">Directories of goGPS</a>). Ephemerides and external resources can be stored within the project folder, but since the same resource could be used in different projects we keep them in folders common among all the projects.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../Command-language/" class="btn btn-neutral" title="Command language"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Command-language/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
