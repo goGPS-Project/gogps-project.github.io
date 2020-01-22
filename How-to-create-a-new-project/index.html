@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>How to create a new project - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">goGPS 1.0 Open Edition</a>
+                            </li>
+                            <li >
+                                <a href="../Command-language/">goGPS command language</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">How to create a new project</a>
+                            </li>
+                            <li >
+                                <a href="../Installation/">Requirements</a>
+                            </li>
+                            <li >
+                                <a href="../Introduction/">goGPS 1.0 OPEN Edition</a>
+                            </li>
+                            <li >
+                                <a href="../Settings/">goGPS Settings</a>
+                            </li>
+                            <li >
+                                <a href="../_Sidebar/"> Sidebar</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../Command-language/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../Installation/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#how-to-create-a-new-project">How to create a new project</a></li>
+            <li><a href="#useful-links">Useful links</a></li>
+            <li><a href="#tip">Tip</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="how-to-create-a-new-project">How to create a new project</h1>
+<p>The easiest way to create a new goGPS project is by using the provided GUI or copying another existing project.</p>
+<p>Open the goGPS interface by executing <code>goGPS</code> in the MATLAB Command Window.</p>
+<p><img alt="Menu Project New" src="https://github.com/goGPS-Project/goGPS_graphics/blob/master/user_manual/menu_new_prj.png" /></p>
+<ul>
+<li>From the <code>Menu</code> choose <code>Project</code> -&gt; <code>New</code></li>
+</ul>
+<p>goGPS will open this window:</p>
+<p><img alt="Create New Project GUI" src="https://github.com/goGPS-Project/goGPS_graphics/blob/master/user_manual/new_prj.png" /></p>
+<p>Fill all the fields.
+1. <strong>Project Time</strong> - Select the type of project that you want to create, depending on this choice the settings of the new project will be adjusted to a suggested configuration. The possible choices are 4:
+   1. PPP Precise Point Positioning
+   2. NET (short baselines) no iono - no tropo
+   3. NET (medium baselines) no iono
+   4. NET (long baselines) iono - free network
+2. <strong>Where to create</strong> - select the directory that will contain the new project folder
+3. <strong>Project Name</strong> - Provide a name for the new project (this will be also the name of the project folder)
+4. <strong>Observations folder</strong> - select the directory in which the observations are stored, a subfolder structure can be present (e.g. <code>RINEX/YEAR/DOY/RINEX_FILE_NAME.YYO</code>) and the operation to perform:
+   1. <strong>Copy</strong> the observations folder into the new project
+   2. <strong>Move</strong> the observations folder into the new project
+   3. <strong>Keep</strong> observations in the current folder
+   4. Do not add any receiver now
+5. Press "Create New Project". If no errors will occur, the project will be created and the goGPS interface for editing settings will be refreshed with the new parameters.</p>
+<p>At this point, the new project can be customized and executed.</p>
+<h2 id="useful-links"><strong>Useful links</strong></h2>
+<ul>
+<li><a href="https://github.com/goGPS-Project/goGPS_MATLAB/wiki/Settings">Wiki settings page</a> - for the meaning of all the parameters</li>
+<li><a href="https://github.com/goGPS-Project/goGPS_MATLAB/wiki/Command-language">Wiki Command language page</a> - for a description of all the available commands</li>
+</ul>
+<h2 id="tip">Tip</h2>
+<p>A goGPS project is usually stored in a folder with a fixed structure, although all the directories could be changed in the settings file, we suggest to keep the original structure (see the section <a href="https://github.com/goGPS-Project/goGPS_MATLAB/wiki/Installation/_edit#directories-of-gogps">Directories of goGPS</a>). Ephemerides and external resources can be stored within the project folder, but since the same resource could be used in different projects we keep them in folders common among all the projects.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
