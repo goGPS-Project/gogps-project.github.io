@@ -404,7 +404,8 @@ When any bug is found and reported on GitHub we try to fix it as fast as we can.
     └─ DATA
         │
         ├─ Antenna
-        │   └─ ATX                     // ANTEX file
+        │   ├─ ATX                     // ANTEX file
+        │   └─ MP                      // Multipath maps
         │
         ├─ Satellite
         │   ├─ CLK                     // clk files
@@ -440,8 +441,9 @@ When any bug is found and reported on GitHub we try to fix it as fast as we can.
                 ├─ &lt; Ref_path &gt;        // &lt;opt&gt; reference paths
                 │
                 ├─ &lt; Antenna &gt;         // &lt;opt&gt; use the global dir if not present
-                │   └─ &lt; ATX &gt;         // &lt;opt&gt; use the global dir if not present
-                │       └─ &lt; custom &gt;  // &lt;opt&gt; put custom .ATX here
+                │   ├─ &lt; ATX &gt;         // &lt;opt&gt; use the global dir if not present
+                │   │   └─ &lt; custom &gt;  // &lt;opt&gt; put custom .ATX here
+                │   └─ &lt;MP&gt;           // Multipath maps
                 │
                 ├─ &lt; Stations &gt;        // &lt;opt&gt; use the global dir if not present
                 │   ├─ &lt; CRD &gt;         // &lt;opt&gt; use the global dir if not present
@@ -458,7 +460,7 @@ When any bug is found and reported on GitHub we try to fix it as fast as we can.
 <li>Execute <code>goGPS</code></li>
 </ol>
 <p>If everything works a GUI like this should appear on your screen:
-<img alt="goGPS Main Window" src="../images/goGPS_MainWindow.png?raw=true" /></p>
+<img alt="goGPS Main Window" src="https://gogps-project.github.io/wiki/images/goGPS_MainWindow.png?raw=true" /></p>
                 
                   
                 
