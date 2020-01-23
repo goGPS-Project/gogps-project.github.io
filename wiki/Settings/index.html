@@ -517,7 +517,7 @@
 This is fully mapped to an object instance of a class Main_Settings and always automatically exported with all the comments necessary to understand the meaning of the parameters.
 The .ini file can be edited using a normal text editor and passed to goGPS to run automatically.
 You can also modify 99% of the settings using the goGPS Edit GUI that will be automatically loaded on goGPS start, the remaining 1% of the settings can be found together with the plain text ini file in the Advanced TAB of the interface.</p>
-<p><img alt="goGPS Advanced Tab" src="https://gogps-project.github.io/wiki/images/goGPS_Advanced.png?raw=true" /></p>
+<p><img alt="goGPS Advanced Tab" src="../images/goGPS_Advanced.png?raw=true" /></p>
 <p>In the following sections, it is possible to find a description of all the elements present in the current goGPS Edit Settings Interface and the corresponding parameter present in the setting file.</p>
 <h2 id="index-of-contents">Index of contents</h2>
 <p>The goGPS Edit interface is structured with a Menu, a Main SideBar, a list of Tabs and a bar in the bottom:</p>
@@ -572,13 +572,13 @@ You can also modify 99% of the settings using the goGPS Edit GUI that will be au
 <p>At the right of the sidebar, some tabs are containing the various global settings that can be defined</p>
 <h3 id="tab-advanced">Tab Advanced</h3>
 <p>This tab is used to change all the settings including the hidden ones.
-<img alt="goGPS Advanced Tab" src="https://gogps-project.github.io/wiki/images/goGPS_Advanced.png?raw=true" />
+<img alt="goGPS Advanced Tab" src="../images/goGPS_Advanced.png?raw=true" />
 In the <strong>editor</strong> a copy of the current ini config file is present and it can be modified directly. Two <strong>buttons</strong> are used to refresh the UI when the ini file is changed.</p>
 <p><strong>Communication dir</strong> is the directory used by goGPS parallelism to communicate with the slave processors. This must be seen by all the Slave processes and the Master (a.k.a. the MATLAB process running the full goGPS)</p>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-resources">Tab Resources</h3>
 <p>The Resource tab contains all the settings defining the kind of orbits that need to be used, and the location of all the downloadable resources. <strong>Note:</strong> the Antenna file, the Geoid, and the Geomagnetic reference field are provided together with the code of goGPS, and updated constantly on the GitHub repository, while all the other resources are <strong>automatically downloaded</strong> and saved into the specified folders by goGPS (if the download flag is checked).
-<img alt="goGPS Resources" src="https://gogps-project.github.io/wiki/images/goGPS_Resources.png?raw=true" />
+<img alt="goGPS Resources" src="../images/goGPS_Resources.png?raw=true" />
 In this tab many commands and fields are present, the first information that can be seen here is the location of the remote_resources.ini file that can be found at the top of the tab. This <strong>resource file</strong> contains all the information needed to find and download a goGPS resource (e.g. orbits, clock errors, Vienna Mapping Functions), together with their names. Generally, this file must never be changed, a more detailed guide on about file will be added to this wiki.
 To use orbits or other resources from a center not available in the list of goGPS centers the remote_resource.ini file must be modified manually (if you have a center to suggest and want it to be added to the remote_resource file open a ticket in GitHub and we will add it as soon as we can).</p>
 <p>List of commands/fields:
@@ -627,16 +627,16 @@ To use orbits or other resources from a center not available in the list of goGP
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-commands">Tab Commands</h3>
 <p>This is the main tab where the sequence of commands that goGPS will perform during his execution are defined.
-<img alt="goGPS Commands" src="https://gogps-project.github.io/wiki/images/goGPS_MainWindow.png?raw=true" />
+<img alt="goGPS Commands" src="../images/goGPS_MainWindow.png?raw=true" />
 The components that can be seen here are just 3:
 * On the right there is an editor containing some command list <em>Execution examples</em> for various kinds of processing. The user cannot interact with this, it can only copy parts of the code present here.
 * On the left there is another editor where the user can type to commands to be executed by goGPS. The commands must be written according to the <a href="https://github.com/goGPS-Project/goGPS_MATLAB/wiki/Command-language#gogps-command-language">goGPS command language</a>
 * At the bottom of the editor, there is a button that will open a window that displays a simple command language help with the list of all the commands available and their corresponding parameters.
-<img alt="goGPS Language Help" src="https://gogps-project.github.io/wiki/images/goGPS_LanguageHelp.png?raw=true" /></p>
+<img alt="goGPS Language Help" src="../images/goGPS_LanguageHelp.png?raw=true" /></p>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-data-sources">Tab Data Sources</h3>
 <p>In this tab, the user defines the location of the observation files, the period of processing, and the size of the sessions.
-<img alt="goGPS Data Sources" src="https://gogps-project.github.io/wiki/images/goGPS_DataSource.png?raw=true" /></p>
+<img alt="goGPS Data Sources" src="../images/goGPS_DataSource.png?raw=true" /></p>
 <ul>
 <li><strong>"Project home directory"</strong> - this field points to the <prj_home>. The project home is the folder containing all the folders of the project. It is very important to notice that all the relative paths that can be used in the configuration start from this folder, this allows having a portable project as long as into the .ini file all the other resources paths are written as relative paths and everything is moved together. The GUI automatically translates full paths to relative paths.</li>
 </ul>
@@ -661,7 +661,7 @@ As long as the resources and observations files are defined with time keywords g
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-receiver-info">Tab Receiver Info</h3>
 <p>This is a tab reserved for receiver specific parameters. In here in the future, it will be possible to set individual parameters for each station to override the generic ones (e.g. trackings to use, cut-off, etc...) but at the moment only coordinates can be provided. At the bottom of the tab, the user can set the path to the directory containing the multipath maps files and the location of the ocean loading file.</p>
-<p><img alt="goGPS Receiver Info" src="https://gogps-project.github.io/wiki/images/goGPS_RecInfo.png?raw=true" /></p>
+<p><img alt="goGPS Receiver Info" src="../images/goGPS_RecInfo.png?raw=true" /></p>
 <ul>
 <li><strong>"CRD filename"</strong> - points to the coordinate file of all the stations. This is the only field in this tab to have a corresponding matching in the <code>.ini</code> setting file, goGPS import the coordinate file before starting the computations, for this reason, any <strong>unsaved modification</strong> to the coordinates will be <strong>ignored</strong> during the processing.</li>
 <li><strong>"Coordinate table"</strong> - this is a table containing information loaded from the coordinate files, to modify them the user can directly manipulate the file with a text editor or through this interface. At the moment the data stored into the coordinate file are:</li>
@@ -690,12 +690,12 @@ As long as the resources and observations files are defined with time keywords g
 <p><strong>"Multipath mitigation dir"</strong> - this is the directory containing receiver specific multipath maps.</p>
 </li>
 <li><strong>"Ocean loading filename"</strong> - this is a resource that cannot be downloaded automatically and is strictly related to the stations. The resources tab requires little modifications while this field is typically checked every time a station is added, for this reason, it is positioned just after the definition of the observation files. Ocean loading are stored into a file with <code>.blq</code> extension and they have to be generated by <a href="http://holt.oso.chalmers.se/loading/">Chalmers website</a> using the tide model FES2004. To help the user requests this file with the missing tides the button <strong>"Get missing BLQ"</strong> can be pressed, it will open a window containing the code to copy and paste in the Chalmers website. When they send the ocean tide coefficients via e-mail the user should manually create or append them to the file pointed in this field.
-<img alt="goGPS Ocean Loading Helper" src="https://gogps-project.github.io/wiki/images/goGPS_OceanLoading.png?raw=true" /></li>
+<img alt="goGPS Ocean Loading Helper" src="../images/goGPS_OceanLoading.png?raw=true" /></li>
 </ul>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-pre-processing">Tab Pre-Processing</h3>
 <p>In this tab, the user can select the data to be processed, set some thresholds for the pre-processing and activate some input modifiers.
-<img alt="goGPS Pre-Processing" src="https://gogps-project.github.io/wiki/images/goGPS_PrePro.png?raw=true" />
+<img alt="goGPS Pre-Processing" src="../images/goGPS_PrePro.png?raw=true" />
 * <strong>"Constellation Selection"</strong> - this panel allows to activate and de-activate some satellite systems / frequencies. <strong>Note:</strong> 
    1. the user needs to select the proper orbits for the enabled constellations (e.g. use MGEX orbits when various systems are selected);
    2. when processing with the combined engine only the best frequencies are used for creating an iono-free combination;
@@ -707,7 +707,7 @@ As long as the resources and observations files are defined with time keywords g
 * <strong>"SNR absolute threshold"</strong> - Signal to Noise Ratio provides a good insight on the quality of the observations registered by the receiver, in particular, it is severely affected by multipath. When this index goes below a certain value it indicates that the observations (especially the pseudo-ranges) might be degraded, setting a threshold allows goGPS to discard these bad data. For more information see the function <em>remUnderSnrThr</em> in <em>Receiver_Work_Space.m</em>.
 * <strong>"SNR scaled threshold"</strong> - different trackings (e.g. GPS C1C, C1W or GLONASS C1P and C1C) and different frequencies have different SNR scaling. Setting a threshold on 28dB might be good for one tracking, but the same value for another could delete too many values. goGPS try to rescale all the SNR from different systems/frequencies/trackings to the one of C1C (or comparable) to be able to set up a unique SNR limit valid for all the observables instead of setting a different one for each observable. A value between 25-32 dB is generally good. To scale the SNR a rough estimation of the pseudo-ranges noise is performed reducing the data with their synthetic version, biases are removed and the standard deviation of the residuals is computed on a moving window arc by arc. 
 Pseudo-ranges below the threshold are deleted from the receiver before the last estimation of the code-only solution in pre-processing. For more information see the function <em>remUnderSnrThr</em> in <em>Receiver_Work_Space.m</em>. In the following figure, the level of noise of a WTZZ (Wetzel) station for GLONASS C1 is compared, C1P has lower noise but also lower SNR, its SNR is scaled to have similar values for the same level of noise of C1C.</p>
-<p><img alt="goGPS clock re-alignment" src="https://gogps-project.github.io/wiki/images/SNR_Scaling.png?raw=true" /></p>
+<p><img alt="goGPS clock re-alignment" src="../images/SNR_Scaling.png?raw=true" /></p>
 <ul>
 <li>
 <p><strong>"Min arc length"</strong> - goGPS will delete any arc smaller than this value, the number is expressed in epochs and not seconds. Remember that the ambiguity of a small arc is generally badly estimated, a reasonable value for this parameter in a 30 seconds processing is 10-12 epochs</p>
@@ -734,11 +734,11 @@ For more details see the function <em>combinePhTrackings</em> in <em>Receiver_Wo
 <p><strong>"Clock re-alignment"</strong> - the satellite clocks estimated by many providers have severe jumps at the end of the day. These are spanning from some centimeters to a few meters; selecting this flag goGPS will try to compensate and correct this jumps (experimental - default "off"). This effect is probably due to the independent estimation of the clock errors among different days. For more details see the function <em>addClk</em> in <em>Core_Sky.m</em>. Here follows an example of this jump, seen as a spike in the clock drift of a satellite (expressed in meters):</p>
 </li>
 </ul>
-<p><img alt="goGPS clock re-alignment" src="https://gogps-project.github.io/wiki/images/goGPS_clock_re_alignment.png?raw=true" /></p>
+<p><img alt="goGPS clock re-alignment" src="../images/goGPS_clock_re_alignment.png?raw=true" /></p>
 <p>The effect of this flag influences the solution near midnight GMT when two sets of old and new ephemeris connect. Removing this jump improves the smoothness of the orbits and thus the outlier detection phase that otherwise may find false-positive outliers. In the following example using different orbit providers and processing the ZIMM (Zimmerwald) station with the PPP uncombined goGPS engine we can see how the orbit of GFZ and CNES produce larger deviation in the estimated ZTD with respect to the other solutions:</p>
-<p><img alt="goGPS clock re-alignment off" src="https://gogps-project.github.io/wiki/images/goGPS_u2_clock_re_alignment_off.png?raw=true" /></p>
+<p><img alt="goGPS clock re-alignment off" src="../images/goGPS_u2_clock_re_alignment_off.png?raw=true" /></p>
 <p>when the re-alignment flag is selected the solutions change showing the following behaviors:</p>
-<p><img alt="goGPS clock re-alignment on" src="https://gogps-project.github.io/wiki/images/goGPS_u2_clock_re_alignment_on.png?raw=true" /></p>
+<p><img alt="goGPS clock re-alignment on" src="../images/goGPS_u2_clock_re_alignment_on.png?raw=true" /></p>
 <p>solutions computed with GFZ and CNES orbits improve, while some of the others are now worse. Use this flag carefully checking case-by-case if this adjustment improves the solution.</p>
 <p>The correction algorithm at the moment is very simple and works as follows:
 1. <code>Take 200 epochs at the left of the file change epoch, and 200 at the right</code>
@@ -758,12 +758,12 @@ The list of corrections that can be applied to the GNSS observations are:
  * <strong>"High Order Ionosphere"</strong> - effect due to the second, and third-order due to the signal passing through the ionosphere.
  * <strong>"Use a-priori Iono Model"</strong> - effect of ionosphere computed with the model selected in the <a href="#tab-atmosphere">Athmosphere tab</a>, this is very useful in case of ionospheric interpolation.
  * <strong>"Multipath mitigation"</strong> - with this pop-up menu the user can choose to try to mitigate multipath using previously generated multipath maps. It is possible to choose between a map based on a Zernike polynomials expansion (smoother) or the version with restored the higher frequencies of staking the residuals, see the command section <strong><a href="https://github.com/goGPS-Project/goGPS_MATLAB/wiki/Command-language#multipath-management">Multipath management</a></strong> for further details.</p>
-<p><img alt="MP final maps" src="https://gogps-project.github.io/wiki/images/MP_Final.png?raw=true" />
+<p><img alt="MP final maps" src="../images/MP_Final.png?raw=true" />
 <em>On the left the smoother solution, on the right the highest details of the staking are preserved</em></p>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-processing">Tab Processing</h3>
 <p>In the processing tab, the user can manipulate the options (PPP and Network adjustment) of the processing engines and select the output to be kept in the output container object.</p>
-<p><img alt="goGPS Processing" src="https://gogps-project.github.io/wiki/images/goGPS_Processing.png?raw=true" /></p>
+<p><img alt="goGPS Processing" src="../images/goGPS_Processing.png?raw=true" /></p>
 <p><strong>Coordinate estimation</strong>
  * <strong>"Separate antenna center for each GNSS"</strong> - when selected goGPS internally computes different phase antenna centers for each constellation
  * <strong>"Additional coordinates rates"</strong> - this function at the moment is used mostly for debugging, it allows to compute up to 3 separate coordinates sets at a different rate. To view their computed values you need to access directly to the object <code>GNSS_Station</code>, at the end of execution they will be in <code>rec(rec_number).work.add_coo</code> (for the last computed work-space) and <code>rec(rec_number).out.add_coo</code> (for the complete series of outputs).</p>
@@ -832,7 +832,7 @@ In this tab the folder of final storage of the results can be changed. Note that
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-regularization">Tab Regularization</h3>
 <p>In this tab, the user can set all the regularization values to be used in the estimation process.</p>
-<p><img alt="goGPS Regularization" src="https://gogps-project.github.io/wiki/images/goGPS_Regularization.png?raw=true" /></p>
+<p><img alt="goGPS Regularization" src="../images/goGPS_Regularization.png?raw=true" /></p>
 <p><strong>Regularization options</strong>
  The regularization of the tropospheric parameters plays a very important factor in their estimation. goGPS is very flexible and many parameters can be tweaked:
  * <strong>Clock regularization</strong> - this is a critical parameter, usually it must not be changed, is set to a very high value meaning basically no regularization. (lower value means higher regularization).</p>
@@ -844,7 +844,7 @@ In this tab the folder of final storage of the results can be changed. Note that
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-atmosphere">Tab Atmosphere</h3>
 <p>This tab is used to select the options for better management of the atmospheric effects.  </p>
-<p><img alt="goGPS Atmosphere" src="https://gogps-project.github.io/wiki/images/goGPS_Atmosphere.png?raw=true" /></p>
+<p><img alt="goGPS Atmosphere" src="../images/goGPS_Atmosphere.png?raw=true" /></p>
 <p><strong>Ionosphere options</strong>
  * <strong>Ionosphere a-priori Model</strong> - in this pop-up menu the user can select the type of a-priori model to be removed from the observations. A good model helps the outlier-detection and pre-processing phase. The available options are:
    - <strong>1 - none</strong>
