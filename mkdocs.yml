@@ -1,9 +1,0 @@
-site_name: Wiki
-nav:
-    - Home: index.md
-    - About: Introduction.md
-    - Installation: Installation.md
-    - Settings: Settings.md
-    - Command language: Command-language.md
-    - HowTo create a new project: How-to-create-a-new-project.md
-theme: readthedocs
