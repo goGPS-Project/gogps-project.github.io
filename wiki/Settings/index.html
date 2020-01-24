@@ -564,27 +564,37 @@ You can also modify 99% of the settings using the goGPS Edit GUI that will be au
 <p>Note: In the main window flags on the left of file or directory paths indicate if the file/directory exists or if it is missing</p>
 <h2 id="menu">Menu</h2>
 <p>The goGPS menu allows performing simple operations and opening tools or other windows. It is still under development and will be expanded in the future. </p>
-<p>At the moment it allows to do the following operations:
-* <strong>goGPS</strong>
-   - <strong>About</strong> open the about window
-* <strong>Options</strong> contains a set of combo modifier of all the settings to perform basic processing
-   - <strong>Set for PPP troposphere estimation</strong>
-   - <strong>Set for NET solution (short baselines - ignore ionosphere - ignore troposphere)</strong>
-   - <strong>Set for NET solution (medium baselines &lt; 20km - ignore ionosphere)</strong>
-   - <strong>Set for NET solution (long baselines - iono-free)</strong>
-* <strong>Project</strong>
-   - <strong>New</strong> open a window to create a new project. The automatic procedure will guide the user to generate a project folder with its main structure and a new generic settings file.
-   - <strong>Load</strong> load a .ini config file
-   - <strong>Save</strong> save the current configuration on the current .ini file, the current file is displayed in the bar at the bottom of the interface.
-   - <strong>Save As</strong> save the current configuration at the given location</p>
+<p>At the moment it allows to do the following operations:</p>
+<ul>
+<li><strong>goGPS</strong><ul>
+<li><strong>About</strong> open the about window</li>
+</ul>
+</li>
+<li><strong>Options</strong> contains a set of combo modifier of all the settings to perform basic processing<ul>
+<li><strong>Set for PPP troposphere estimation</strong></li>
+<li><strong>Set for NET solution (short baselines - ignore ionosphere - ignore troposphere)</strong></li>
+<li><strong>Set for NET solution (medium baselines &lt; 20km - ignore ionosphere)</strong></li>
+<li><strong>Set for NET solution (long baselines - iono-free)</strong></li>
+</ul>
+</li>
+<li><strong>Project</strong><ul>
+<li><strong>New</strong> open a window to create a new project. The automatic procedure will guide the user to generate a project folder with its main structure and a new generic settings file.</li>
+<li><strong>Load</strong> load a .ini config file</li>
+<li><strong>Save</strong> save the current configuration on the current .ini file, the current file is displayed in the bar at the bottom of the interface.</li>
+<li><strong>Save As</strong> save the current configuration at the given location</li>
+</ul>
+</li>
+</ul>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h2 id="sidebar">Sidebar</h2>
 <p>On the left side of goGPS Edit Interface, there is a side-bar containing basic information about the data that will be available for processing. </p>
-<p>A section dedicated to the processing <em>sessions</em> is located at the top, it contains:
-* a <strong>Check</strong> button to update the Session limits in the case they are not automatically updated
-* <strong>First</strong> and <strong>Last epoch</strong> to be processed
-* <strong>Duration</strong> (length) of each single session 
-* <strong>Buffer</strong> dimension in seconds of the data intervals to be used in addition to one of the sessions. (e.g. with a session of 86400 seconds - one day - and buffers of 10800 seconds - 3 hours - a total of 30 hours of data will be processed for each session, each session will overlap with the next, thus allowing a smoother estimation of tropospheric parameters and a better arc ambiguity estimation)</p>
+<p>A section dedicated to the processing <em>sessions</em> is located at the top, it contains:</p>
+<ul>
+<li>a <strong>Check</strong> button to update the Session limits in the case they are not automatically updated</li>
+<li><strong>First</strong> and <strong>Last epoch</strong> to be processed</li>
+<li><strong>Duration</strong> (length) of each single session </li>
+<li><strong>Buffer</strong> dimension in seconds of the data intervals to be used in addition to one of the sessions. (e.g. with a session of 86400 seconds - one day - and buffers of 10800 seconds - 3 hours - a total of 30 hours of data will be processed for each session, each session will overlap with the next, thus allowing a smoother estimation of tropospheric parameters and a better arc ambiguity estimation)</li>
+</ul>
 <p>A section dedicated to the <strong>receiver list</strong> is at the bottom of the sidebar. There you can find 3 buttons:</p>
 <ol>
 <li><strong>Check</strong> to refresh the list of receivers when is not automatically updated</li>
@@ -606,38 +616,48 @@ In the <strong>editor</strong> a copy of the current ini config file is present 
 <img alt="goGPS Resources" src="../images/goGPS_Resources.png?raw=true" />
 In this tab many commands and fields are present, the first information that can be seen here is the location of the remote_resources.ini file that can be found at the top of the tab. This <strong>resource file</strong> contains all the information needed to find and download a goGPS resource (e.g. orbits, clock errors, Vienna Mapping Functions), together with their names. Generally, this file must never be changed, a more detailed guide on about file will be added to this wiki.
 To use orbits or other resources from a center not available in the list of goGPS centers the remote_resource.ini file must be modified manually (if you have a center to suggest and want it to be added to the remote_resource file open a ticket in GitHub and we will add it as soon as we can).</p>
-<p>List of commands/fields:
-* <strong>"Allow automatic download [...]"</strong> - this command is a flag, if enabled it allows goGPS to search for the resources it needs online (always recommended)
-* <strong>Center</strong> pop-up list -  this control allow the select the kind of resources/provider to be used, the main centers are already available in goGPS: IGS, EMR, ESOC, JAXA, CODE, ... at the left of the command, the list of supported constellations is reported for the active choice. E.g. selecting JAXA the supported constellations are "GRJ", each letter represents a constellation:
-   - G GPS (US)
-   - R GLONASS (Russia)
-   - E Galileo (EU)
-   - J QZSS (Japan)
-   - C Beidou (China)
-   - I IRNSS (India)
-* <strong>"Center orbit type preference"</strong> - contains a set of flags to specify the kind of orbit to be used. If more choices are selected the leftmost resource is the primary choice, when a type of resource (e.g. final orbits) is not present (even on a remote server) the next best solution is the one that will be used (e.g. rapid orbits)
-* <strong>"Center iono type preference"</strong> - similarly to the orbits different types of ionospheric models are available with descending quality from left to right
-* <strong>"Resource tree inspector"</strong> - this field cannot be modified, it just shows the remote location of all the resources that are required. All the information it displays are built on run-time from the remote_resource.ini file
-* <strong>"Reset all resources path"</strong> - this button comes in handy when importing a project from another computer, in the settings file the location of the resources may be expressed as a full path and it might be no longer existing in the importing computer. Pressing this button all the resources paths will be reset to their default values. The green/red flags shown in this tab are useful to understand if a file/folder is missing.</p>
-<p>Below the button follows the list of all the local paths of the resources.
-* Special time keywords can be used in the paths, they will automatically take all the values they can assume in the sessions span:
-  - ${WWWW}    <em>4 char GPS week</em>
-  - ${WWWWD}   <em>4+1 char GPS week + day of the week</em>
-  - ${D}       <em>1 char day of the week</em>
-  - ${3H}      <em>2 char GPS hour (00, 03, 06, 09, 12, 15, 18, 21)</em>
-  - ${6H}      <em>2 char GPS hour (00, 06, 12, 18)</em>
-  - ${HH}      <em>2 char GPS hour</em>
-  - ${QQ}      <em>2 char GPS quarter of hour (00, 15, 30, 45)</em>
-  - ${5M}      <em>2 char GPS five minutes (05, 10, ... , 55)</em>
-  - ${YYDOY}   <em>2+3 char GPS year + day of year</em>
-  - ${YYYY}    <em>4 char GPS year</em>
-  - ${YY}      <em>2 char GPS year</em>
-  - ${MM}      <em>2 char GPS month</em>
-  - ${DD}      <em>2 char GPS day</em>
-  - ${DOY}     <em>3 char GPS day of the year</em>
-  - ${S}       <em>1 char session</em></p>
+<p>List of commands/fields:</p>
 <ul>
-<li><strong>"Antenna (ATX) filename"</strong> - here the user has to set the path that points to the antenna file (usually the last IGS file available). This file contains information about Phase Center Offsets (PCOs) and Phase Center Variations (PCVs) of the antennas of the satellites and the receivers. It is a mandatory file, without it, the error in computing a solution can be extremely high. When the antenna for a certain receiver is not found with the proper radome the "NONE" radome is used instead. If no information about a frequency is found the data corresponding to the closest frequency will be used. If no information about a constellation is found the data corresponding to GPS with the closest frequency will be used. <strong>Note:</strong> additional antenna files (in ANTEX format) with custom values can be passed to goGPS, to load them they must be saved into a folder contained in the home of the project you are running, this folder is <code>&lt;prj_home&gt;/station/ATX/custom/</code>, the file can have any name but its extension must be <code>.ATX</code>.</li>
+<li><strong>"Allow automatic download [...]"</strong> - this command is a flag, if enabled it allows goGPS to search for the resources it needs online (always recommended)</li>
+<li><strong>Center</strong> pop-up list -  this control allow the select the kind of resources/provider to be used, the main centers are already available in goGPS: IGS, EMR, ESOC, JAXA, CODE, ... at the left of the command, the list of supported constellations is reported for the active choice. E.g. selecting JAXA the supported constellations are "GRJ", each letter represents a constellation:<ul>
+<li>G GPS (US)</li>
+<li>R GLONASS (Russia)</li>
+<li>E Galileo (EU)</li>
+<li>J QZSS (Japan)</li>
+<li>C Beidou (China)</li>
+<li>I IRNSS (India)</li>
+</ul>
+</li>
+<li><strong>"Center orbit type preference"</strong> - contains a set of flags to specify the kind of orbit to be used. If more choices are selected the leftmost resource is the primary choice, when a type of resource (e.g. final orbits) is not present (even on a remote server) the next best solution is the one that will be used (e.g. rapid orbits)</li>
+<li><strong>"Center iono type preference"</strong> - similarly to the orbits different types of ionospheric models are available with descending quality from left to right</li>
+<li><strong>"Resource tree inspector"</strong> - this field cannot be modified, it just shows the remote location of all the resources that are required. All the information it displays are built on run-time from the remote_resource.ini file</li>
+<li><strong>"Reset all resources path"</strong> - this button comes in handy when importing a project from another computer, in the settings file the location of the resources may be expressed as a full path and it might be no longer existing in the importing computer. Pressing this button all the resources paths will be reset to their default values. The green/red flags shown in this tab are useful to understand if a file/folder is missing.</li>
+</ul>
+<p>Below the button follows the list of all the local paths of the resources.</p>
+<ul>
+<li>
+<p>Special time keywords can be used in the paths, they will automatically take all the values they can assume in the sessions span:</p>
+<ul>
+<li>${WWWW}    <em>4 char GPS week</em></li>
+<li>${WWWWD}   <em>4+1 char GPS week + day of the week</em></li>
+<li>${D}       <em>1 char day of the week</em></li>
+<li>${3H}      <em>2 char GPS hour (00, 03, 06, 09, 12, 15, 18, 21)</em></li>
+<li>${6H}      <em>2 char GPS hour (00, 06, 12, 18)</em></li>
+<li>${HH}      <em>2 char GPS hour</em></li>
+<li>${QQ}      <em>2 char GPS quarter of hour (00, 15, 30, 45)</em></li>
+<li>${5M}      <em>2 char GPS five minutes (05, 10, ... , 55)</em></li>
+<li>${YYDOY}   <em>2+3 char GPS year + day of year</em></li>
+<li>${YYYY}    <em>4 char GPS year</em></li>
+<li>${YY}      <em>2 char GPS year</em></li>
+<li>${MM}      <em>2 char GPS month</em></li>
+<li>${DD}      <em>2 char GPS day</em></li>
+<li>${DOY}     <em>3 char GPS day of the year</em></li>
+<li>${S}       <em>1 char session</em></li>
+</ul>
+</li>
+<li>
+<p><strong>"Antenna (ATX) filename"</strong> - here the user has to set the path that points to the antenna file (usually the last IGS file available). This file contains information about Phase Center Offsets (PCOs) and Phase Center Variations (PCVs) of the antennas of the satellites and the receivers. It is a mandatory file, without it, the error in computing a solution can be extremely high. When the antenna for a certain receiver is not found with the proper radome the "NONE" radome is used instead. If no information about a frequency is found the data corresponding to the closest frequency will be used. If no information about a constellation is found the data corresponding to GPS with the closest frequency will be used. <strong>Note:</strong> additional antenna files (in ANTEX format) with custom values can be passed to goGPS, to load them they must be saved into a folder contained in the home of the project you are running, this folder is <code>&lt;prj_home&gt;/station/ATX/custom/</code>, the file can have any name but its extension must be <code>.ATX</code>.</p>
+</li>
 <li><strong>"Geoid local path"</strong> - in this line the user has to set the location of the geoid grid file (in MATLAB .mat format) used to compute orthometric heights, note that passing a grid of a quasigeoid in here will lead to use normal heights (look at <a href="https://www2.unb.ca/gge/Personnel/Vanicek/Vanicek-et-al_CGG-42-1_PROOF.pdf">Vanicek et al 2012</a> for more info). For 99.9% of the processing, the included goGPS grid of EGM2008 is more than enough; when a point does not fall on the exact knot of the grid a bilinear (or cubic) interpolation is performed.</li>
 <li><strong>"CRX path"</strong> - this is the path to the folder containing CRX files (satellite problem file), these are automatically downloaded from the CODE FTP server, they contain useful information on the status of the satellites (maneuvers, outage, and other unusual behaviors).</li>
 <li><strong>"Eph local dir"</strong> - orbits ephemerides are loaded from their standard exchange format SP3, this is the location of storage of them, the name of the orbit is automatically generated depending on the selected "center orbit type". The orbits are automatically downloaded in the right location by goGPS but it is possible to put them manually in their local location.</li>
@@ -653,11 +673,13 @@ To use orbits or other resources from a center not available in the list of goGP
 <h3 id="tab-commands">Tab Commands</h3>
 <p>This is the main tab where the sequence of commands that goGPS will perform during his execution are defined.
 <img alt="goGPS Commands" src="../images/goGPS_MainWindow.png?raw=true" />
-The components that can be seen here are just 3:
-* On the right there is an editor containing some command list <em>Execution examples</em> for various kinds of processing. The user cannot interact with this, it can only copy parts of the code present here.
-* On the left there is another editor where the user can type to commands to be executed by goGPS. The commands must be written according to the <a href="https://github.com/goGPS-Project/goGPS_MATLAB/wiki/Command-language#gogps-command-language">goGPS command language</a>
-* At the bottom of the editor, there is a button that will open a window that displays a simple command language help with the list of all the commands available and their corresponding parameters.
-<img alt="goGPS Language Help" src="../images/goGPS_LanguageHelp.png?raw=true" /></p>
+The components that can be seen here are just 3:</p>
+<ul>
+<li>On the right there is an editor containing some command list <em>Execution examples</em> for various kinds of processing. The user cannot interact with this, it can only copy parts of the code present here.</li>
+<li>On the left there is another editor where the user can type to commands to be executed by goGPS. The commands must be written according to the <a href="./Command-language#gogps-command-language">goGPS command language</a></li>
+<li>At the bottom of the editor, there is a button that will open a window that displays a simple command language help with the list of all the commands available and their corresponding parameters.
+<img alt="goGPS Language Help" src="../images/goGPS_LanguageHelp.png?raw=true" /></li>
+</ul>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-data-sources">Tab Data Sources</h3>
 <p>In this tab, the user defines the location of the observation files, the period of processing, and the size of the sessions.
@@ -667,22 +689,30 @@ The components that can be seen here are just 3:
 </ul>
 <p><strong>Sessions</strong>
 In the sessions panel is possible to define the limits of epoch to process, the time keywords used for the definition of the paths will be substituted accordingly to these.
-As long as the resources and observations files are defined with time keywords goGPS allows the definition of flexible limits (e.g. it is possible to process daily sessions even if the observations are stored into hourly RINEX files, and vice-versa)
-* <strong>"Start"</strong> - marks the first epoch to process.
-* <strong>"Stop"</strong> - marks the last epoch to process.
-* <strong>"Session duration"</strong> - this is useful to limit the number of epochs to batch process, or to get solutions at higher rates.
-    1. e.g. 86400 seconds - will process 24 hours of data all together in a unique LS adjustment;
-    2. e.g. 3600 seconds - will generate independent (if no buffer is selected) solutions every hour of data to have a series of hourly positions.
-* <strong>"Buffers"</strong> - buffers are an almost unique feature of goGPS, they can be very useful to limit border effects. The epoch in the buffer will concur to the joint LS solution but they will not affect the dimension of the sessions. Only the parameters estimated in the session will be exported in the output receiver object (buffers are never considered).
-    1. e.g. [14400, 14400] seconds - means 3 hours for each buffer, if the session is of 86400 seconds this will make goGPS process a total of 30 hours of data in a unique solution, each session will overlap the next one for a total of 6 hours
-* <strong>"Smooth troposphere at boundaries"</strong> - this is a flag to be used only when buffers are set different from 0. When set, the tropospheric parameters estimated in the overlap with another session will be merged thus allowing a smoother solution at the change of session.
-* <strong>"Separate coordinates at boundaries"</strong> - when set, the buffer will be used for the estimation of the tropospheric parameters and the phase ambiguities, but not for the positions. A separate set of coordinates will be estimated for each one of the two buffers, this improves the ambiguity estimation and limits the border effect but should not influence (just minimally) the estimated position for the defined session.
-* <strong>"RINEX based session"</strong> - this flag forces the dimension of the session to be exactly the one of the RINEX observation files (this dimension should be homogeneous among all the files).
-* <strong>"Session character list"</strong> - RINEX2 standard naming convention uses a single character to define the session, in these fields it is possible to define the characters to be used. Usually, these are just ["0", "0", "0"] for daily files and ["abcdefghijklmnopqrstuvwx", "a", "x"] for hourly files.</p>
-<p><strong>Stations</strong>
-* <strong>"Observation directory"</strong> - this is the root folder containing all the observation files, relative paths in the next field start from here. When selecting a folder containing observation files goGPS try to add all the station present in there to the processing.
-* <strong>"Observation files"</strong> - contains the names and relative paths of the files of the stations (receivers) to be processed. Note that goGPS accept RINEX2 and RINEX3 observations files only.
-* <strong>"Recursive get marker names"</strong> - using this button is possible to add stations in a recursive way starting from a directory.</p>
+As long as the resources and observations files are defined with time keywords goGPS allows the definition of flexible limits (e.g. it is possible to process daily sessions even if the observations are stored into hourly RINEX files, and vice-versa)</p>
+<ul>
+<li><strong>"Start"</strong> - marks the first epoch to process.</li>
+<li><strong>"Stop"</strong> - marks the last epoch to process.</li>
+<li><strong>"Session duration"</strong> - this is useful to limit the number of epochs to batch process, or to get solutions at higher rates.<ol>
+<li>e.g. 86400 seconds - will process 24 hours of data all together in a unique LS adjustment;</li>
+<li>e.g. 3600 seconds - will generate independent (if no buffer is selected) solutions every hour of data to have a series of hourly positions.</li>
+</ol>
+</li>
+<li><strong>"Buffers"</strong> - buffers are an almost unique feature of goGPS, they can be very useful to limit border effects. The epoch in the buffer will concur to the joint LS solution but they will not affect the dimension of the sessions. Only the parameters estimated in the session will be exported in the output receiver object (buffers are never considered).<ol>
+<li>e.g. [14400, 14400] seconds - means 3 hours for each buffer, if the session is of 86400 seconds this will make goGPS process a total of 30 hours of data in a unique solution, each session will overlap the next one for a total of 6 hours</li>
+</ol>
+</li>
+<li><strong>"Smooth troposphere at boundaries"</strong> - this is a flag to be used only when buffers are set different from 0. When set, the tropospheric parameters estimated in the overlap with another session will be merged thus allowing a smoother solution at the change of session.</li>
+<li><strong>"Separate coordinates at boundaries"</strong> - when set, the buffer will be used for the estimation of the tropospheric parameters and the phase ambiguities, but not for the positions. A separate set of coordinates will be estimated for each one of the two buffers, this improves the ambiguity estimation and limits the border effect but should not influence (just minimally) the estimated position for the defined session.</li>
+<li><strong>"RINEX based session"</strong> - this flag forces the dimension of the session to be exactly the one of the RINEX observation files (this dimension should be homogeneous among all the files).</li>
+<li><strong>"Session character list"</strong> - RINEX2 standard naming convention uses a single character to define the session, in these fields it is possible to define the characters to be used. Usually, these are just ["0", "0", "0"] for daily files and ["abcdefghijklmnopqrstuvwx", "a", "x"] for hourly files.</li>
+</ul>
+<p><strong>Stations</strong></p>
+<ul>
+<li><strong>"Observation directory"</strong> - this is the root folder containing all the observation files, relative paths in the next field start from here. When selecting a folder containing observation files goGPS try to add all the station present in there to the processing.</li>
+<li><strong>"Observation files"</strong> - contains the names and relative paths of the files of the stations (receivers) to be processed. Note that goGPS accept RINEX2 and RINEX3 observations files only.</li>
+<li><strong>"Recursive get marker names"</strong> - using this button is possible to add stations in a recursive way starting from a directory.</li>
+</ul>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-receiver-info">Tab Receiver Info</h3>
 <p>This is a tab reserved for receiver specific parameters. In here in the future, it will be possible to set individual parameters for each station to override the generic ones (e.g. trackings to use, cut-off, etc...) but at the moment only coordinates can be provided. At the bottom of the tab, the user can set the path to the directory containing the multipath maps files and the location of the ocean loading file.</p>
@@ -720,18 +750,20 @@ As long as the resources and observations files are defined with time keywords g
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-pre-processing">Tab Pre-Processing</h3>
 <p>In this tab, the user can select the data to be processed, set some thresholds for the pre-processing and activate some input modifiers.
-<img alt="goGPS Pre-Processing" src="../images/goGPS_PrePro.png?raw=true" />
-* <strong>"Constellation Selection"</strong> - this panel allows to activate and de-activate some satellite systems / frequencies. <strong>Note:</strong> 
-   1. the user needs to select the proper orbits for the enabled constellations (e.g. use MGEX orbits when various systems are selected);
-   2. when processing with the combined engine only the best frequencies are used for creating an iono-free combination;
-   3. be aware that due to the inter-frequency clock bias with L5 not automatically handled by goGPS, selecting GPS L5 may produce bad results;
-   4. to use more than two frequency at a time the uncombined engine must be used for the processing;
-   5. if a frequency/constellation is not present in a receiver goGPS should be able with the remaining observables.
-* <strong>"Min satellite per epoch"</strong> - under this threshold the epoch is discarded from the processing (default value is 2).
-* <strong>"Data cut-off angle"</strong> - during the preprocessing, after the estimation of a good position of the receiver, all the observations of a satellite below this elevation are deleted from the workspace and not considered in the rest of the processing.
-* <strong>"SNR absolute threshold"</strong> - Signal to Noise Ratio provides a good insight on the quality of the observations registered by the receiver, in particular, it is severely affected by multipath. When this index goes below a certain value it indicates that the observations (especially the pseudo-ranges) might be degraded, setting a threshold allows goGPS to discard these bad data. For more information see the function <em>remUnderSnrThr</em> in <em>Receiver_Work_Space.m</em>.
-* <strong>"SNR scaled threshold"</strong> - different trackings (e.g. GPS C1C, C1W or GLONASS C1P and C1C) and different frequencies have different SNR scaling. Setting a threshold on 28dB might be good for one tracking, but the same value for another could delete too many values. goGPS try to rescale all the SNR from different systems/frequencies/trackings to the one of C1C (or comparable) to be able to set up a unique SNR limit valid for all the observables instead of setting a different one for each observable. A value between 25-32 dB is generally good. To scale the SNR a rough estimation of the pseudo-ranges noise is performed reducing the data with their synthetic version, biases are removed and the standard deviation of the residuals is computed on a moving window arc by arc. 
-Pseudo-ranges below the threshold are deleted from the receiver before the last estimation of the code-only solution in pre-processing. For more information see the function <em>remUnderSnrThr</em> in <em>Receiver_Work_Space.m</em>. In the following figure, the level of noise of a WTZZ (Wetzel) station for GLONASS C1 is compared, C1P has lower noise but also lower SNR, its SNR is scaled to have similar values for the same level of noise of C1C.</p>
+<img alt="goGPS Pre-Processing" src="../images/goGPS_PrePro.png?raw=true" /></p>
+<ul>
+<li><strong>"Constellation Selection"</strong> - this panel allows to activate and de-activate some satellite systems / frequencies. <strong>Note:</strong> </li>
+<li>the user needs to select the proper orbits for the enabled constellations (e.g. use MGEX orbits when various systems are selected);</li>
+<li>when processing with the combined engine only the best frequencies are used for creating an iono-free combination;</li>
+<li>be aware that due to the inter-frequency clock bias with L5 not automatically handled by goGPS, selecting GPS L5 may produce bad results;</li>
+<li>to use more than two frequency at a time the uncombined engine must be used for the processing;</li>
+<li>if a frequency/constellation is not present in a receiver goGPS should be able with the remaining observables.</li>
+<li><strong>"Min satellite per epoch"</strong> - under this threshold the epoch is discarded from the processing (default value is 2).</li>
+<li><strong>"Data cut-off angle"</strong> - during the preprocessing, after the estimation of a good position of the receiver, all the observations of a satellite below this elevation are deleted from the workspace and not considered in the rest of the processing.</li>
+<li><strong>"SNR absolute threshold"</strong> - Signal to Noise Ratio provides a good insight on the quality of the observations registered by the receiver, in particular, it is severely affected by multipath. When this index goes below a certain value it indicates that the observations (especially the pseudo-ranges) might be degraded, setting a threshold allows goGPS to discard these bad data. For more information see the function <em>remUnderSnrThr</em> in <em>Receiver_Work_Space.m</em>.</li>
+<li><strong>"SNR scaled threshold"</strong> - different trackings (e.g. GPS C1C, C1W or GLONASS C1P and C1C) and different frequencies have different SNR scaling. Setting a threshold on 28dB might be good for one tracking, but the same value for another could delete too many values. goGPS try to rescale all the SNR from different systems/frequencies/trackings to the one of C1C (or comparable) to be able to set up a unique SNR limit valid for all the observables instead of setting a different one for each observable. A value between 25-32 dB is generally good. To scale the SNR a rough estimation of the pseudo-ranges noise is performed reducing the data with their synthetic version, biases are removed and the standard deviation of the residuals is computed on a moving window arc by arc. 
+Pseudo-ranges below the threshold are deleted from the receiver before the last estimation of the code-only solution in pre-processing. For more information see the function <em>remUnderSnrThr</em> in <em>Receiver_Work_Space.m</em>. In the following figure, the level of noise of a WTZZ (Wetzel) station for GLONASS C1 is compared, C1P has lower noise but also lower SNR, its SNR is scaled to have similar values for the same level of noise of C1C.</li>
+</ul>
 <p><img alt="goGPS clock re-alignment" src="../images/SNR_Scaling.png?raw=true" /></p>
 <ul>
 <li>
@@ -746,14 +778,14 @@ Pseudo-ranges below the threshold are deleted from the receiver before the last 
 <li>
 <p><strong>"Trackings combination"</strong> - when this flag is selected carrier-phase observations from multiple trackings of the same frequency are combined using their approximate noise levels as weights, tracking biases and cycle-slips not present on all the trackings are estimated and corrected (experimental - default "on"). 
 For more details see the function <em>combinePhTrackings</em> in <em>Receiver_Work_Space.m</em>. To estimate the noise level of each carrier-phase (<em>ph</em>) and then the weights the following algorithm is applied:</p>
-</li>
+<ol>
 <li><code>using the position computed at the end of pre-processing (code positioning) compute the synthesized pseudo-ranges (_spr_) for the satellites seen by the receiver</code></li>
 <li><code>compute the residuals: _ph_ - _spr_</code></li>
 <li><code>remove relative tracking biases</code></li>
 <li><code>compute the moving variance (5 epoch window) for each tracking of the same observable (e.g. L1C L1W)</code></li>
 <li><code>compute a cubic interpolation of the variance with respect to the elevation</code></li>
-<li>
-<p><code>compute the weight as 1 / this interpolated index</code></p>
+<li><code>compute the weight as 1 / this interpolated index</code></li>
+</ol>
 </li>
 <li>
 <p><strong>"Clock re-alignment"</strong> - the satellite clocks estimated by many providers have severe jumps at the end of the day. These are spanning from some centimeters to a few meters; selecting this flag goGPS will try to compensate and correct this jumps (experimental - default "off"). This effect is probably due to the independent estimation of the clock errors among different days. For more details see the function <em>addClk</em> in <em>Core_Sky.m</em>. Here follows an example of this jump, seen as a spike in the clock drift of a satellite (expressed in meters):</p>
@@ -765,93 +797,117 @@ For more details see the function <em>combinePhTrackings</em> in <em>Receiver_Wo
 <p>when the re-alignment flag is selected the solutions change showing the following behaviors:</p>
 <p><img alt="goGPS clock re-alignment on" src="../images/goGPS_u2_clock_re_alignment_on.png?raw=true" /></p>
 <p>solutions computed with GFZ and CNES orbits improve, while some of the others are now worse. Use this flag carefully checking case-by-case if this adjustment improves the solution.</p>
-<p>The correction algorithm at the moment is very simple and works as follows:
-1. <code>Take 200 epochs at the left of the file change epoch, and 200 at the right</code>
-2. <code>compute std of the drift of the two subsets of data</code>
-3. <code>if the jump is greater than the standard deviation compute a correction</code>
-4. <code>(correction) perform a linear interpolation of the two subsets predicting one epoch of the clock from the two sides and offset the right side to minimize the jump</code>
-An offset in a satellite clock in a network solution causes no problems, while in PPP might influence the ambiguity estimation of an arc, this correction is still experimental and needs additional investigations to be applied safely. </p>
+<p>The correction algorithm at the moment is very simple and works as follows:</p>
+<ol>
+<li><code>Take 200 epochs at the left of the file change epoch, and 200 at the right</code></li>
+<li><code>compute std of the drift of the two subsets of data</code></li>
+<li><code>if the jump is greater than the standard deviation compute a correction</code></li>
+<li><code>(correction) perform a linear interpolation of the two subsets predicting one epoch of the clock from the two sides and offset the right side to minimize the jump</code>
+An offset in a satellite clock in a network solution causes no problems, while in PPP might influence the ambiguity estimation of an arc, this correction is still experimental and needs additional investigations to be applied safely. </li>
+</ol>
 <p><strong>PPP corrections</strong> - This panel allows applying all the corrections needed for a Precise Point Positioning. All the corrections are applied at the end of the pre-processing phase, using fixed coordinates. Although all these corrections are not necessary for a network adjustment, applying them allows a better outlier detection. Among all the available corrections "Atmospheric Loading" and "High Order Ionosphere" are the ones with a lesser impact and can be disabled safely. 
-The list of corrections that can be applied to the GNSS observations are:
- * <strong>"Receiver PCO/PCV"</strong> - phase center offsets and variations, the magnitude of this effect depends on the antenna type
- * <strong>"Solid Earth Tide"</strong> - tides due to Earth's crust movements (tens of centimeter).
- * <strong>"Pole Earth Tide"</strong> - tides due to the wobbling of the Earth rotation axis (up to 2.5 cm vertical - 0.7 cm horizontal).
- * <strong>"Phase Wind Up"</strong> - affect only phases due to the electromagnetic nature of circularly polarised waves, it depends on the relative orientation of satellite and receiver antennas (some centimeters).
- * <strong>"Shapiro Delay"</strong> - relativistic effect (less than 2 cm).
- * <strong>"Ocean Loading"</strong> - due to ocean tides deformations of the seafloor and a surface displacement of adjacent land (few centimeters).
- * <strong>"Atmospheric Loading"</strong> - this effect is due to the variation of the atmospheric pressure.
- * <strong>"High Order Ionosphere"</strong> - effect due to the second, and third-order due to the signal passing through the ionosphere.
- * <strong>"Use a-priori Iono Model"</strong> - effect of ionosphere computed with the model selected in the <a href="#tab-atmosphere">Athmosphere tab</a>, this is very useful in case of ionospheric interpolation.
- * <strong>"Multipath mitigation"</strong> - with this pop-up menu the user can choose to try to mitigate multipath using previously generated multipath maps. It is possible to choose between a map based on a Zernike polynomials expansion (smoother) or the version with restored the higher frequencies of staking the residuals, see the command section <strong><a href="https://github.com/goGPS-Project/goGPS_MATLAB/wiki/Command-language#multipath-management">Multipath management</a></strong> for further details.</p>
+The list of corrections that can be applied to the GNSS observations are:</p>
+<ul>
+<li><strong>"Receiver PCO/PCV"</strong> - phase center offsets and variations, the magnitude of this effect depends on the antenna type</li>
+<li><strong>"Solid Earth Tide"</strong> - tides due to Earth's crust movements (tens of centimeter).</li>
+<li><strong>"Pole Earth Tide"</strong> - tides due to the wobbling of the Earth rotation axis (up to 2.5 cm vertical - 0.7 cm horizontal).</li>
+<li><strong>"Phase Wind Up"</strong> - affect only phases due to the electromagnetic nature of circularly polarised waves, it depends on the relative orientation of satellite and receiver antennas (some centimeters).</li>
+<li><strong>"Shapiro Delay"</strong> - relativistic effect (less than 2 cm).</li>
+<li><strong>"Ocean Loading"</strong> - due to ocean tides deformations of the seafloor and a surface displacement of adjacent land (few centimeters).</li>
+<li><strong>"Atmospheric Loading"</strong> - this effect is due to the variation of the atmospheric pressure.</li>
+<li><strong>"High Order Ionosphere"</strong> - effect due to the second, and third-order due to the signal passing through the ionosphere.</li>
+<li><strong>"Use a-priori Iono Model"</strong> - effect of ionosphere computed with the model selected in the <a href="#tab-atmosphere">Athmosphere tab</a>, this is very useful in case of ionospheric interpolation.</li>
+<li><strong>"Multipath mitigation"</strong> - with this pop-up menu the user can choose to try to mitigate multipath using previously generated multipath maps. It is possible to choose between a map based on a Zernike polynomials expansion (smoother) or the version with restored the higher frequencies of staking the residuals, see the command section <strong><a href="./Command-language#multipath-management">Multipath management</a></strong> for further details.</li>
+</ul>
 <p><img alt="MP final maps" src="../images/MP_Final.png?raw=true" />
 <em>On the left the smoother solution, on the right the highest details of the staking are preserved</em></p>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-processing">Tab Processing</h3>
 <p>In the processing tab, the user can manipulate the options (PPP and Network adjustment) of the processing engines and select the output to be kept in the output container object.</p>
 <p><img alt="goGPS Processing" src="../images/goGPS_Processing.png?raw=true" /></p>
-<p><strong>Coordinate estimation</strong>
- * <strong>"Separate antenna center for each GNSS"</strong> - when selected goGPS internally computes different phase antenna centers for each constellation
- * <strong>"Additional coordinates rates"</strong> - this function at the moment is used mostly for debugging, it allows to compute up to 3 separate coordinates sets at a different rate. To view their computed values you need to access directly to the object <code>GNSS_Station</code>, at the end of execution they will be in <code>rec(rec_number).work.add_coo</code> (for the last computed work-space) and <code>rec(rec_number).out.add_coo</code> (for the complete series of outputs).</p>
-<p><strong>Generic Options</strong>
- * <strong>"Observation weighting"</strong> - Select the type of observation weighting function. These are the available options:
-   - uniform
-   - satellite elevation 
- * <strong>"Max code observation err"</strong> - the pseudo-range observations having residuals above this threshold are excluded from the LS adjustment (this threshold works only for the uncombined engine).
- * <strong>"Max code observation err"</strong> - the carrier phase observations having residuals above this threshold are excluded from the LS adjustment.</p>
-<p><strong>Tropospheric options</strong>
- * <strong>Estimate ZTD</strong> - when this flag is selected the Zenit Total Delay is estimated during the step of processing, it may be useful to disable this option executing a network adjustment of very short baselines.
- * <strong>Estimate ZTD gradients</strong> - this option enables the computation of north and east tropospheric gradients.
- * <strong>Absolute tropo in-network</strong> - activating this flag when performing a network adjustment with long base-lines the full tropospheric delay is estimated for each station.</p>
-<p><strong>Ionosphere Options</strong>
- * <strong>Ionosphere Management</strong> - here it is possible to select the kind of management for the ionospheric delay, this option is valid only when using the combined engine
-   - <strong>1 - Iono-free</strong> - when selected goGPS uses the iono-free combination to process dual-frequency data.
-   - <strong>2 - Smooth GF</strong> - when selected goGPS will use the geometry-free combination pf L1 and L2 (only these two) to compute a smooth ionospheric delay that will be removed from the observations. This is similar to using an iono-free approach but with a slightly smoother final result.
-   - <strong>3 - External-model</strong> - when this option is selected (or only one frequency is logged by the receiver) no combinations are used, an a-priori external model should be applied (see tab pre-processing) to have reasonable results. The model to be used is set in the <a href="#tab-atmosphere">Atmosphere tab</a>.</p>
+<p><strong>Coordinate estimation</strong></p>
+<ul>
+<li><strong>"Separate antenna center for each GNSS"</strong> - when selected goGPS internally computes different phase antenna centers for each constellation</li>
+<li><strong>"Additional coordinates rates"</strong> - this function at the moment is used mostly for debugging, it allows to compute up to 3 separate coordinates sets at a different rate. To view their computed values you need to access directly to the object <code>GNSS_Station</code>, at the end of execution they will be in <code>rec(rec_number).work.add_coo</code> (for the last computed work-space) and <code>rec(rec_number).out.add_coo</code> (for the complete series of outputs).</li>
+</ul>
+<p><strong>Generic Options</strong></p>
+<ul>
+<li><strong>"Observation weighting"</strong> - Select the type of observation weighting function. These are the available options:</li>
+<li>uniform</li>
+<li>satellite elevation </li>
+<li><strong>"Max code observation err"</strong> - the pseudo-range observations having residuals above this threshold are excluded from the LS adjustment (this threshold works only for the uncombined engine).</li>
+<li><strong>"Max code observation err"</strong> - the carrier phase observations having residuals above this threshold are excluded from the LS adjustment.</li>
+</ul>
+<p><strong>Tropospheric options</strong></p>
+<ul>
+<li><strong>Estimate ZTD</strong> - when this flag is selected the Zenit Total Delay is estimated during the step of processing, it may be useful to disable this option executing a network adjustment of very short baselines.</li>
+<li><strong>Estimate ZTD gradients</strong> - this option enables the computation of north and east tropospheric gradients.</li>
+<li><strong>Absolute tropo in-network</strong> - activating this flag when performing a network adjustment with long base-lines the full tropospheric delay is estimated for each station.</li>
+</ul>
+<p><strong>Ionosphere Options</strong></p>
+<ul>
+<li><strong>Ionosphere Management</strong> - here it is possible to select the kind of management for the ionospheric delay, this option is valid only when using the combined engine</li>
+<li><strong>1 - Iono-free</strong> - when selected goGPS uses the iono-free combination to process dual-frequency data.</li>
+<li><strong>2 - Smooth GF</strong> - when selected goGPS will use the geometry-free combination pf L1 and L2 (only these two) to compute a smooth ionospheric delay that will be removed from the observations. This is similar to using an iono-free approach but with a slightly smoother final result.</li>
+<li><strong>3 - External-model</strong> - when this option is selected (or only one frequency is logged by the receiver) no combinations are used, an a-priori external model should be applied (see tab pre-processing) to have reasonable results. The model to be used is set in the <a href="#tab-atmosphere">Atmosphere tab</a>.</li>
+</ul>
 <p><strong>PPP only Options</strong> 
-These options are dedicated to the Precise Point Positioning adjustment.
- * <strong>"PPP Snooping / Reweight"</strong> - This pop-up menu allow the user to chose different types of outlier rejection / data re-wight. The list of methods currently available is:
-   - <strong>1 - none</strong> perform neither snooping nor reweight
-   - <strong>2 - re-weight Huber</strong> see Table2 in <a href="https://www.mdpi.com/1424-8220/8/11/7344/pdf">Gökalp et al, 2008 - <em>Evaluation of Different Outlier Detection Methods for GPS Networks</em></a> is applied on all the observations having residuals greater than a threshold level, set to be 2 * std(residuals)
-   - <strong>3 - re-weight Huber (no threshold)</strong> Huber M-estimator applied on all the residuals
-   - <strong>4 - re-weight Danish</strong>  see Table2 in <a href="https://www.mdpi.com/1424-8220/8/11/7344/pdf">Gökalp et al, 2008 - <em>Evaluation of Different Outlier Detection Methods for GPS Networks</em></a>  is applied on all the observations having residuals greater than a threshold level, set to be 2 * std(residuals)
-   - <strong>5 - re-weight DanishWM</strong> Modified Danish M-estimator,  is applied on all the observations having residuals greater than a threshold level, set to be 2 * std(residuals)
-   - <strong>6 - re-weight Tukey</strong> see Table2 in <a href="https://www.mdpi.com/1424-8220/8/11/7344/pdf">Gökalp et al, 2008 - <em>Evaluation of Different Outlier Detection Methods for GPS Networks</em></a>  is applied on all the observations having residuals greater than a threshold level, set to be 2 * std(residuals)
-   - <strong>7 - simple snooping</strong> all the observations having residuals greater than 2.5 * std(residuals) are removed from the adjustment
-   - <strong>8 - smart snooping</strong> it's a method based on two threshold levels, the first one triggers the removal of the observations until its residuals re-enter below the second threshold (e.g. detection on 6 sigma0, removal of data till their residuals are below 2.5 sigma0).
-   - <strong>9 - smart snooping + arc trim</strong> like the previous but the second threshold is lower (2 * std(residuals)), furthermore, all the arc edges having residuals greater than 2 * std(residuals) are removed
- * <strong>"PPP Try to fix Ambiguity (Experimental)"</strong> - when this flag is enabled the PPP engine will try to fix ambiguities, note that this option at the moment works only with CNES orbits (they provide BIASes), receivers with precise code, and the combined engine.
- * <strong>"Enable PPP for receivers containing only a single frequency"</strong> - by default goGPS does not compute any PPP solutions for single frequency receivers due to the high ionospheric errors that might be introduced. In some cases, the ionospheric delay is removed from the observations by interpolation or models and the user might want to re-enable the PPP processing.</p>
+These options are dedicated to the Precise Point Positioning adjustment.</p>
+<ul>
+<li><strong>"PPP Snooping / Reweight"</strong> - This pop-up menu allow the user to chose different types of outlier rejection / data re-wight. The list of methods currently available is:<ul>
+<li><strong>1 - none</strong> perform neither snooping nor reweight</li>
+<li><strong>2 - re-weight Huber</strong> see Table2 in <a href="https://www.mdpi.com/1424-8220/8/11/7344/pdf">Gökalp et al, 2008 - <em>Evaluation of Different Outlier Detection Methods for GPS Networks</em></a> is applied on all the observations having residuals greater than a threshold level, set to be 2 * std(residuals)</li>
+<li><strong>3 - re-weight Huber (no threshold)</strong> Huber M-estimator applied on all the residuals</li>
+<li><strong>4 - re-weight Danish</strong>  see Table2 in <a href="https://www.mdpi.com/1424-8220/8/11/7344/pdf">Gökalp et al, 2008 - <em>Evaluation of Different Outlier Detection Methods for GPS Networks</em></a>  is applied on all the observations having residuals greater than a threshold level, set to be 2 * std(residuals)</li>
+<li><strong>5 - re-weight DanishWM</strong> Modified Danish M-estimator,  is applied on all the observations having residuals greater than a threshold level, set to be 2 * std(residuals)</li>
+<li><strong>6 - re-weight Tukey</strong> see Table2 in <a href="https://www.mdpi.com/1424-8220/8/11/7344/pdf">Gökalp et al, 2008 - <em>Evaluation of Different Outlier Detection Methods for GPS Networks</em></a>  is applied on all the observations having residuals greater than a threshold level, set to be 2 * std(residuals)</li>
+<li><strong>7 - simple snooping</strong> all the observations having residuals greater than 2.5 * std(residuals) are removed from the adjustment</li>
+<li><strong>8 - smart snooping</strong> it's a method based on two threshold levels, the first one triggers the removal of the observations until its residuals re-enter below the second threshold (e.g. detection on 6 sigma0, removal of data till their residuals are below 2.5 sigma0).</li>
+<li><strong>9 - smart snooping + arc trim</strong> like the previous but the second threshold is lower (2 * std(residuals)), furthermore, all the arc edges having residuals greater than 2 * std(residuals) are removed</li>
+</ul>
+</li>
+<li><strong>"PPP Try to fix Ambiguity (Experimental)"</strong> - when this flag is enabled the PPP engine will try to fix ambiguities, note that this option at the moment works only with CNES orbits (they provide BIASes), receivers with precise code, and the combined engine.</li>
+<li><strong>"Enable PPP for receivers containing only a single frequency"</strong> - by default goGPS does not compute any PPP solutions for single frequency receivers due to the high ionospheric errors that might be introduced. In some cases, the ionospheric delay is removed from the observations by interpolation or models and the user might want to re-enable the PPP processing.</li>
+</ul>
 <p><strong>Network only Options</strong> 
-These options are dedicated to NETWORK adjustment.
- * <strong>"NET Snooping / Reweight"</strong> - Network snooping and reweight have not been fully implemented. A different strategy is applied here: the uncombined engine just disregard all the observations set above the limit for maximum phase and code residuals in the generic options (see <code>Network.adjustNew</code> for more details); the combined approach instead have three options:
-   - <strong>1 - none</strong> perform neither snooping nor reweight
-   - <strong>2 - simple 4 loops</strong> - this procedure removes outliers iteratively on residuals. At first, try to remove the worse data till the solution (in maximum 4 iterations) converges to a final adjustment (see <code>Network.adjust</code> for more details)
-   - <strong>3 - 4 loops + remove bad satellites</strong> In addition to the previous approach, goGPS remove "bad" satellites, i.e. all the observations having residuals not having zero mean (see <code>Network.adjust</code> for more details)
- * <strong>"NET fixing approach"</strong> - select the fixing approach to be used (remember that to use lambda3 you need to have requested the code for applying it), the current options are:
-   - <strong>1 - none</strong>
-   - <strong>2 - lambda3 search and shrink</strong>
-   - <strong>3 - lambda3 integer bootstrapping</strong>
-   - <strong>4 - lambda partial</strong>
-   - <strong>5 - bayesian</strong>
-   - <strong>6 - bayesian best integer equivariant</strong>
-   - <strong>7 - sequential best integer equivariant</strong></p>
+These options are dedicated to NETWORK adjustment.</p>
+<ul>
+<li><strong>"NET Snooping / Reweight"</strong> - Network snooping and reweight have not been fully implemented. A different strategy is applied here: the uncombined engine just disregard all the observations set above the limit for maximum phase and code residuals in the generic options (see <code>Network.adjustNew</code> for more details); the combined approach instead have three options:<ul>
+<li><strong>1 - none</strong> perform neither snooping nor reweight</li>
+<li><strong>2 - simple 4 loops</strong> - this procedure removes outliers iteratively on residuals. At first, try to remove the worse data till the solution (in maximum 4 iterations) converges to a final adjustment (see <code>Network.adjust</code> for more details)</li>
+<li><strong>3 - 4 loops + remove bad satellites</strong> In addition to the previous approach, goGPS remove "bad" satellites, i.e. all the observations having residuals not having zero mean (see <code>Network.adjust</code> for more details)</li>
+</ul>
+</li>
+<li><strong>"NET fixing approach"</strong> - select the fixing approach to be used (remember that to use lambda3 you need to have requested the code for applying it), the current options are:<ul>
+<li><strong>1 - none</strong></li>
+<li><strong>2 - lambda3 search and shrink</strong></li>
+<li><strong>3 - lambda3 integer bootstrapping</strong></li>
+<li><strong>4 - lambda partial</strong></li>
+<li><strong>5 - bayesian</strong></li>
+<li><strong>6 - bayesian best integer equivariant</strong></li>
+<li><strong>7 - sequential best integer equivariant</strong></li>
+</ul>
+</li>
+</ul>
 <p><strong>Results to store</strong> 
-goGPS is object-oriented, every receiver is considered a unique GNSS_Station, internally the software stores data in two objects: <em>work</em>, and <em>out</em>. <em>Work</em> is an object of class Receiver_Work_Space and contains the observations and everything is needed for the computation of the results of a single session, <em>out</em> is an object of class Receiver_Output and collects the output of a receiver for all the sessions. The results stored in the <em>work</em> object are pushed to <em>out</em> only when the <code>PUSHOUT</code> command is issued. The following flags select the output to be kept. <strong>Note:</strong> the data stored in <em>out</em> can take a lot of RAM space, this is the reason for the possibility of selecting what must be kept.
- * <strong>"Dt (clock errors)"</strong> - Clock Errors
- * <strong>"PWV"</strong> - Precipitable Water Vapour
- * <strong>"ZWD"</strong> - Zenith Wet Delay
- * <strong>"ZTD"</strong> - Zenith Total Delay
- * <strong>"Tropo Gradients"</strong> - Tropospheric gradients (North, East)
- * <strong>"A-priori tropo"</strong> - A-priori tropospheric delay as computed from the model
- * <strong>"P / T / H"</strong> - Pressure / Temperature / Humidity
- * <strong>"Outliers / CS"</strong> - Outliers and Cycle slips (per satellite to keep them small)
- * <strong>"Quality (SNR)"</strong> - This is an index that might be improved in the future (per satellite to keep them small), at the moment it is storing just SNR
- * <strong>"Number of Sat. per Epoch"</strong> - Number of satellites used per epoch (and by constellation) 
- * <strong>"Azimuth / Elevation"</strong> - Azimuth and Elevation of all the satellites in view
- * <strong>"Combined Residuals"</strong> - Residuals of the processing (one per satellite)
- * <strong>"Uncombined Code Res."</strong> - Residuals of the processing for pseudo-range observations (one per observables)
- * <strong>"Uncombined Phase Res."</strong> - Residuals of the processing for carrier-phase observations (one per observables)
- * <strong>"Mapping functions"</strong> - Mapping function of the troposphere (one per satellite)</p>
+goGPS is object-oriented, every receiver is considered a unique GNSS_Station, internally the software stores data in two objects: <em>work</em>, and <em>out</em>. <em>Work</em> is an object of class Receiver_Work_Space and contains the observations and everything is needed for the computation of the results of a single session, <em>out</em> is an object of class Receiver_Output and collects the output of a receiver for all the sessions. The results stored in the <em>work</em> object are pushed to <em>out</em> only when the <code>PUSHOUT</code> command is issued. The following flags select the output to be kept. <strong>Note:</strong> the data stored in <em>out</em> can take a lot of RAM space, this is the reason for the possibility of selecting what must be kept.</p>
+<ul>
+<li><strong>"Dt (clock errors)"</strong> - Clock Errors</li>
+<li><strong>"PWV"</strong> - Precipitable Water Vapour</li>
+<li><strong>"ZWD"</strong> - Zenith Wet Delay</li>
+<li><strong>"ZTD"</strong> - Zenith Total Delay</li>
+<li><strong>"Tropo Gradients"</strong> - Tropospheric gradients (North, East)</li>
+<li><strong>"A-priori tropo"</strong> - A-priori tropospheric delay as computed from the model</li>
+<li><strong>"P / T / H"</strong> - Pressure / Temperature / Humidity</li>
+<li><strong>"Outliers / CS"</strong> - Outliers and Cycle slips (per satellite to keep them small)</li>
+<li><strong>"Quality (SNR)"</strong> - This is an index that might be improved in the future (per satellite to keep them small), at the moment it is storing just SNR</li>
+<li><strong>"Number of Sat. per Epoch"</strong> - Number of satellites used per epoch (and by constellation) </li>
+<li><strong>"Azimuth / Elevation"</strong> - Azimuth and Elevation of all the satellites in view</li>
+<li><strong>"Combined Residuals"</strong> - Residuals of the processing (one per satellite)</li>
+<li><strong>"Uncombined Code Res."</strong> - Residuals of the processing for pseudo-range observations (one per observables)</li>
+<li><strong>"Uncombined Phase Res."</strong> - Residuals of the processing for carrier-phase observations (one per observables)</li>
+<li><strong>"Mapping functions"</strong> - Mapping function of the troposphere (one per satellite)</li>
+</ul>
 <p><strong>Output folder</strong>
 In this tab the folder of final storage of the results can be changed. Note that some results will be saved into sub-folders automatically created.</p>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
@@ -859,35 +915,51 @@ In this tab the folder of final storage of the results can be changed. Note that
 <p>In this tab, the user can set all the regularization values to be used in the estimation process.</p>
 <p><img alt="goGPS Regularization" src="../images/goGPS_Regularization.png?raw=true" /></p>
 <p><strong>Regularization options</strong>
- The regularization of the tropospheric parameters plays a very important factor in their estimation. goGPS is very flexible and many parameters can be tweaked:
- * <strong>Clock regularization</strong> - this is a critical parameter, usually it must not be changed, is set to a very high value meaning basically no regularization. (lower value means higher regularization).</p>
-<p><strong>ZTD (and gradients) estimation</strong> - all the options available for the estimation of ZTD are duplicated for ZTD gradients.
- * <strong>Absolute regularization</strong> - this parameter is rarely changed, a strong regularization causes goGPS to estimate a smaller correction to the a-priori value.
- * <strong>First derivate regularization</strong> - a regularization on the first derivate means to limit the speed of variation of ZTD, a smaller value causes a smoother ZTD estimation.
- * <strong>Spline rate</strong> - goGPS usually estimate an epoch by epoch ZTD but this rapidly increases the size of the normal equations matrix; when processing big networks it might be useful to speed-up the computations by using splines. 
- * <strong>Order of the spline</strong> - goGPS is able to use linear or cubic spline for computing ZTD; when "none" is selected the software will compute an epoch by epoch solution.</p>
+ The regularization of the tropospheric parameters plays a very important factor in their estimation. goGPS is very flexible and many parameters can be tweaked:</p>
+<ul>
+<li><strong>Clock regularization</strong> - this is a critical parameter, usually it must not be changed, is set to a very high value meaning basically no regularization. (lower value means higher regularization).</li>
+</ul>
+<p><strong>ZTD (and gradients) estimation</strong> - all the options available for the estimation of ZTD are duplicated for ZTD gradients.</p>
+<ul>
+<li><strong>Absolute regularization</strong> - this parameter is rarely changed, a strong regularization causes goGPS to estimate a smaller correction to the a-priori value.</li>
+<li><strong>First derivate regularization</strong> - a regularization on the first derivate means to limit the speed of variation of ZTD, a smaller value causes a smoother ZTD estimation.</li>
+<li><strong>Spline rate</strong> - goGPS usually estimate an epoch by epoch ZTD but this rapidly increases the size of the normal equations matrix; when processing big networks it might be useful to speed-up the computations by using splines. </li>
+<li><strong>Order of the spline</strong> - goGPS is able to use linear or cubic spline for computing ZTD; when "none" is selected the software will compute an epoch by epoch solution.</li>
+</ul>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-atmosphere">Tab Atmosphere</h3>
 <p>This tab is used to select the options for better management of the atmospheric effects.  </p>
 <p><img alt="goGPS Atmosphere" src="../images/goGPS_Atmosphere.png?raw=true" /></p>
-<p><strong>Ionosphere options</strong>
- * <strong>Ionosphere a-priori Model</strong> - in this pop-up menu the user can select the type of a-priori model to be removed from the observations. A good model helps the outlier-detection and pre-processing phase. The available options are:
-   - <strong>1 - none</strong>
-   - <strong>2 - Klobuchar</strong> - standard Klobuchar model, it requires ionospheric parameters that are usually read from broadcast orbits (goGPS can automatically fetch them)
-   - <strong>3 - IONEX</strong> - this is the most precise model that can be applied, it is read from IONEX files, depending on the preferred type selected in the resources tab it can be a model from observed values or just a prediction.</p>
-<p><strong>Tropospheric options</strong>
- * <strong>Mapping function</strong> - in this pop-up menu it is possible to select the tropospheric mapping function, at the moment only 3 models are available, the additional model can be implemented into <em>Receiver_Work_Space.getSlantMF</em>.
-   - <strong>1 GMF</strong> - Global Mapping Function
-   - <strong>2 VMF gridded</strong> - Vienna Mapping Function (they are automatically downloaded when needed)
-   - <strong>3 Neil</strong> - Niel Mapping Function
- * <strong>A-priori zenith delay</strong> - this is the a-priori model to be used for computing tropospheric delays, two options are available:
-   - <strong>1 Saastamoinen from meteo data</strong> - this option makes goGPS use as a-priori model Saastamoinen, the origin of the data to be used depends on the next field in the GUI
-   - <strong>2 VMF gridded zenith delays</strong> - these are Zenith delays coming from the Vienna gridded maps of ZTD
- * <strong>Meteo Data</strong> - here the user can select the source of the meteorological data to be used:
-   - <strong>1 Standard Atmosphere</strong> - Standard values of Pressure (1013.25 mbar), Temperature (18 °Celsius), Humidity (50 %)
-   - <strong>2 GPT</strong> -
-   - <strong>3 MET files</strong> - use the Meteorological RINEX specified in the following fields.
- * <strong>MET files</strong> - goGPS can use meteorological RINEX files to import temperature, pressure, and humidity from meteorological stations. It automatically interpolates the data at the right elevation and at the station positions (See Meteo_Data.getVMS for more details). The syntax for these files are like  </p>
+<p><strong>Ionosphere options</strong></p>
+<ul>
+<li><strong>Ionosphere a-priori Model</strong> - in this pop-up menu the user can select the type of a-priori model to be removed from the observations. A good model helps the outlier-detection and pre-processing phase. The available options are:<ul>
+<li><strong>1 - none</strong></li>
+<li><strong>2 - Klobuchar</strong> - standard Klobuchar model, it requires ionospheric parameters that are usually read from broadcast orbits (goGPS can automatically fetch them)</li>
+<li><strong>3 - IONEX</strong> - this is the most precise model that can be applied, it is read from IONEX files, depending on the preferred type selected in the resources tab it can be a model from observed values or just a prediction.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tropospheric options</strong></p>
+<ul>
+<li><strong>Mapping function</strong> - in this pop-up menu it is possible to select the tropospheric mapping function, at the moment only 3 models are available, the additional model can be implemented into <em>Receiver_Work_Space.getSlantMF</em>.<ul>
+<li><strong>1 GMF</strong> - Global Mapping Function</li>
+<li><strong>2 VMF gridded</strong> - Vienna Mapping Function (they are automatically downloaded when needed)</li>
+<li><strong>3 Neil</strong> - Niel Mapping Function</li>
+</ul>
+</li>
+<li><strong>A-priori zenith delay</strong> - this is the a-priori model to be used for computing tropospheric delays, two options are available:<ul>
+<li><strong>1 Saastamoinen from meteo data</strong> - this option makes goGPS use as a-priori model Saastamoinen, the origin of the data to be used depends on the next field in the GUI</li>
+<li><strong>2 VMF gridded zenith delays</strong> - these are Zenith delays coming from the Vienna gridded maps of ZTD</li>
+</ul>
+</li>
+<li><strong>Meteo Data</strong> - here the user can select the source of the meteorological data to be used:<ul>
+<li><strong>1 Standard Atmosphere</strong> - Standard values of Pressure (1013.25 mbar), Temperature (18 °Celsius), Humidity (50 %)</li>
+<li><strong>2 GPT</strong> -</li>
+<li><strong>3 MET files</strong> - use the Meteorological RINEX specified in the following fields.</li>
+</ul>
+</li>
+<li><strong>MET files</strong> - goGPS can use meteorological RINEX files to import temperature, pressure, and humidity from meteorological stations. It automatically interpolates the data at the right elevation and at the station positions (See Meteo_Data.getVMS for more details). The syntax for these files are like  </li>
+</ul>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h2 id="bottom-bar">Bottom Bar</h2>
 <p>In the bottom bar, the user can find buttons to load and save the current settings and the full path of the current <code>.ini</code> file in use. And the button "<strong>go!</strong>"  to start execution.</p>
@@ -965,6 +1037,8 @@ In this tab the folder of final storage of the results can be changed. Note that
       <script src="../assets/javascripts/application.808e90bb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>
