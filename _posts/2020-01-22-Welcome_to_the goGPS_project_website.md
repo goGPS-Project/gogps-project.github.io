@@ -5,7 +5,7 @@ date:   2020-01-22 18:06:45 +0100
 categories: goGPS site update
 author: andrea
 ---
-![goGPS](https://github.com/goGPS-Project/goGPS_graphics/blob/master/logo/PNGs/goGPS_logo_128.png?raw=true)
+![goGPS](/assets/img/goGPS_logo_128W.png)
 
 During the last stages of development of the release 1.0 of goGPS, the creation of the **documentation** necessary to let users try our software was of primary importance. We created the new incarnation of goGPS MATLAB to limit most of the effort required to process RINEX files, but this doesn't mean that using goGPS is simple. More are the options implemented more are the description needed to let anyone use the software. 
 
