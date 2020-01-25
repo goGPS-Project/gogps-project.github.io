@@ -40,7 +40,7 @@ andrea:
   about:             |
     Software developer and researcher @GReD_srl (Como, Italy).
     Geodesist working on GNSS monitoring 🛰 and data analysis.    
-    I am also one of the two main developer of goGPS MATLAB.  
+    Andrea Gatti is one of the two main developer of goGPS MATLAB.  
 
   # This photo will be used in the about section.
   picture:
@@ -99,7 +99,7 @@ giulio:
   about:             |
     Researcher @GReD_srl (Como, Italy).
     Geodesist working on GNSS monitoring 🛰    
-    I am also one of the two main developer of goGPS MATLAB.
+    Giulio Tagliaferro is one of the two main developer of goGPS MATLAB.
 
   picture:           
       path:          /assets/img/profile/Giulio.jpg
@@ -121,7 +121,7 @@ eugenio:
   about:             |
     Researcher @GReD_srl (Como, Italy).
     Geodesist working on GNSS monitoring 🛰    
-    I am also one of the two founding fathers of goGPS.
+    Eugenio Realini is one of the two founding fathers of goGPS.
 
   picture:           
       path:          /assets/img/profile/Eugenio.jpg
