@@ -43,9 +43,9 @@ logo:                  /assets/icons/icon.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
-  name:                Andrea Gatti
-  email:               <gatti.andrea@gmail.com>
-  twitter:             ClimberCat
+  name:                goGPS Software
+  email:               <support@gogps-project.org>
+  twitter:             gogps
 
 # Add links to the sidebar.
 menu:

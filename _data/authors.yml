@@ -1,6 +1,35 @@
 # The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
 # You can change `author1` to your shortname.
+gogps:
+  # Replace <...> with your own (remove the < >)
+  name:              goGPS Software
+  email:             <support@gogps-project.org.com>
+
+  # Used at the bottom of each page and at the top of the `about` layout
+  # Markdown enabled, can use multiple paragraphs (enabled by `|`)
+  about:             |
+    goGPS is a MATLAB software created for processing GNSS raw data. 
+    It was originally written specifically to work with GPS single-frequency
+    low-cost receivers but now it can fully exploit multi-constellation, 
+    multi-frequency, multi-tracking observations.
+
+  # This photo will be used in the about section.
+  picture:
+    path:            /assets/imgprofile/goGPS.png
+    # srcset is optional, but can be used to provide higher res versions for retina displays
+    srcset:
+      1x:            /assets/img/profile/goGPS.png
+      2x:            /assets/img/profile/goGPS@2x.png
+
+  # Social media icons in sidebar.
+  # Comment/uncommet to show/hide. Rearrange to change the order in which they appear.
+  social:
+    twitter:         gogps
+    github:          goGPS-project
+    # download:        <url>
+    email:           support@gogps-project.org
+
 andrea:
   # Replace <...> with your own (remove the < >)
   name:              Andrea Gatti
