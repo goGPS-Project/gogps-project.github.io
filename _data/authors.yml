@@ -1,35 +1,33 @@
 # The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
 # You can change `author1` to your shortname.
-author1:
+andrea:
   # Replace <...> with your own (remove the < >)
-  name:              <firstname> <lastname>
-  email:             support@gogps-project.org
+  name:              Andrea Gatti
+  email:             <gatti.andrea@gmail.com>
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-    Open `_data/authors.yml` to edit this text.
+    Software developer and researcher @GReD_srl (Como, Italy).
+    Geodesist working on GNSS monitoring 🛰 and data analysis.    
+    I am also one of the two main developer of goGPS MATLAB.  
 
   # This photo will be used in the about section.
   picture:
-    path:            https://placehold.it/128x128
+    path:            /assets/imgprofile/Andrea.jpg
     # srcset is optional, but can be used to provide higher res versions for retina displays
     srcset:
-      1x:            https://placehold.it/128x128
-      2x:            https://placehold.it/256x256
+      1x:            /assets/img/profile/Andrea.jpg
+      2x:            /assets/img/profile/Andrea@2x.jpg
 
   # Social media icons in sidebar.
   # Comment/uncommet to show/hide. Rearrange to change the order in which they appear.
   social:
-    twitter:         gogps
-    github:          gogps-project/goGPS_MATLAB
+    twitter:         ClimberCat
+    github:          clicat
     # download:        <url>
-    email:           support@gogps-project.org
+    email:           gatti.andrea@gmail.com
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
     # google:          <number>
@@ -66,18 +64,42 @@ author1:
     # paypal:          <username>
 
 # Another author
-author2:
-  name:              <firtname> <lastname>
-  email:             <mail@domain.tld>
+giulio:
+  name:              Giulio Tagliaferro
+  email:             <giulio.tagliaferro@g-red.eu>
   about:             |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Researcher @GReD_srl (Como, Italy).
+    Geodesist working on GNSS monitoring 🛰    
+    I am also one of the two main developer of goGPS MATLAB.
 
-    Open `_data/authors.yml` to edit this text.
-  picture:           https://placehold.it/128x128
-  twitter:           <username>
-  github:            <username>
+  picture:           
+      path:          /assets/img/profile/Giulio.jpg
+      srcset:
+        1x:          /assets/img/profile/Giulio.jpg
+        2x:          /assets/img/profile/Giulio@2x.jpg
+  github:            tagliagiulio
+
+  # Every author can have his/her own accent color and image.
+  # This will change the appearance of all pages of this author.
+  accent_color:      '#268bd2'
+  accent_image:
+    background:      '#202020'
+    overlay:         false
+
+eugenio:
+  name:              Eugenio Realini
+  email:             <eugenio.realini@g-red.eu>
+  about:             |
+    Researcher @GReD_srl (Como, Italy).
+    Geodesist working on GNSS monitoring 🛰    
+    I am also one of the two founding fathers of goGPS.
+
+  picture:           
+      path:          /assets/img/profile/Eugenio.jpg
+      srcset:
+        1x:          /assets/img/profile/Eugenio.jpg
+        2x:          /assets/img/profile/Eugenio@2x.jpg
+  github:            ege010
 
   # Every author can have his/her own accent color and image.
   # This will change the appearance of all pages of this author.
