@@ -5,7 +5,7 @@ date:   2020-01-22 18:06:45 +0100
 categories: goGPS site update
 author: andrea
 ---
-During the last stages of development of the release 1.0 of goGPS, the creation of the **documentation** necessary to let users try our software was of primary importance. We created the new incarnation of goGPS MATLAB to limit most of the effort required to process RINEX files, but this doesn't mean that using goGPS is simple. More are the options implemented more are the description needed to let anyone use the software.
+![goGPS](/assets/img/goGPS_open.png){:.lead data-width="184" data-height="78"} During the last stages of development of the release 1.0 of goGPS, the creation of the **documentation** necessary to let users try our software was of primary importance. We created the new incarnation of goGPS MATLAB to limit most of the effort required to process RINEX files, but this doesn't mean that using goGPS is simple. More are the options implemented more are the description needed to let anyone use the software.
 
 I created this website to host the **wiki pages** stored on GitHub, to contribute to the documentation one can directly modify the original [GitHub wiki](https://github.com/gogps-project/goGPS_MATLAB/wiki) pages, but the modification there won't be immediately propagated to this website. 
 The documentation present in here is a mirror created with [mkdocs](https://www.mkdocs.org).
@@ -16,6 +16,4 @@ Last but not least, using this website, we will be able to share some advanced *
 
 Visit the [Wiki pages](/wiki/) for the documentation of the software, and feel free to open an issue on the [GitHub page](https://github.com/gogps-project/goGPS_MATLAB/issues) if you find any bugs.
 
-To conclude this first post, I would like to express my thanks to all the people helped to create the current version goGPS and acknowledge the company where I work ([GReD](http://g-red.eu)) for the support in the development let us keep part of our development open-source and available to the community.
-
-![goGPS](/assets/img/goGPS_logo_128W.png) 
+To conclude this first post, I would like to express my thanks to all the people helped to create the current version goGPS and acknowledge the company where I work ([Geomatics Research and Developpment - GReD](http://g-red.eu)) for the support in the development let us keep part of our development open-source and available to the community.
