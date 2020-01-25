@@ -18,5 +18,5 @@ Last but not least, using this website, we will be able to share some advanced *
 
 Visit the [Wiki pages](/wiki/) for the documentation of the software, and feel free to open an issue on the [GitHub page](https://github.com/gogps-project/goGPS_MATLAB/issues) if you find any bugs.
 
-To conclude this post, I would like to express my thanks to all the people helped to create the current version goGPS and acknowledge the company where I work ([GReD](http://g-red.eu)) for the support in the development let us keep part of our development open-source and available to the community.
+To conclude this first post, I would like to express my thanks to all the people helped to create the current version goGPS and acknowledge the company where I work ([GReD](http://g-red.eu)) for the support in the development let us keep part of our development open-source and available to the community.
 
