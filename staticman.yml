@@ -97,6 +97,11 @@ comments:
   # To encrypt strings use the following endpoint:
   # https://api.staticman.net/v2/encrypt/{TEXT TO BE ENCRYPTED}
   reCaptcha:
-    enabled: true
-    siteKey: "6Ldz89IUAAAAAPTjWS6ZlC4HwLJe7kl7fyODBS4Y"
-    secret: "AwxtiRnkQlWCNUqxgWsuPrkUEynKOVB00MiB3+0JudrKAu8pYkDXnygLZiERERPID2lxP8egr6U6K5QMjJfuJZ3CE5DQ28DaDQfgWaBzRs0ikAC9TIPJmJ/oLwZH2xXSSwwGF0lTjhUmYCRuOs4y85J4HMVS1GExh6PQhaGKiHM="
+    enabled: false
+    siteKey: ""
+    # Encrypt reCaptcha secret key using Staticman /encrypt endpoint
+    # For more information, https://staticman.net/docs/encryption
+    secret: ""
+    # enabled: true
+    # siteKey: "6Ldz89IUAAAAAPTjWS6ZlC4HwLJe7kl7fyODBS4Y"
+    # secret: "AwxtiRnkQlWCNUqxgWsuPrkUEynKOVB00MiB3+0JudrKAu8pYkDXnygLZiERERPID2lxP8egr6U6K5QMjJfuJZ3CE5DQ28DaDQfgWaBzRs0ikAC9TIPJmJ/oLwZH2xXSSwwGF0lTjhUmYCRuOs4y85J4HMVS1GExh6PQhaGKiHM="
