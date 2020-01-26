@@ -341,5 +341,5 @@ sass:
 # https://api.staticman.net/v2/encrypt/{TEXT TO BE ENCRYPTED}
 reCaptcha:
   enabled: true
-  siteKey: "6LdT7dIUAAAAAPS6x0IVcbIAQ5T1Ayms7_kQg-ul"
-  secret: "BWFh4Lgd7jyknjqFrlsyP/oQG3wV7hoVL8/YCpX1ejY0H6jtYOYHxu85hu6s8k8wd04q1wUVinmwTN20iCCOTzKvW8naJbcuGwawW8D7uQvUXPgcUE70yhh6VZAFlQ4Jtaq2CHU5JoMJT9+FY3Z4DrGe/IE1I60qdNv7tQzHbFs="
+  siteKey: "6Ldz89IUAAAAAPTjWS6ZlC4HwLJe7kl7fyODBS4Y"
+  secret: "YXxFCYrul4mWxGS6W2KFvLq5Gh9JIkuGFgj0D6b1aSajkcbzHe1bWQkNgixpXQVBpqeAxWa9XF4452eYYyyo9haHBaHmDIgN+LnnHMT0RCt5foBX7KJ6X8YKKnwWvX4xGE/vWaIihtiqcTOGTClIL8BJEhpq/x/ivAUvoECmCQw="
