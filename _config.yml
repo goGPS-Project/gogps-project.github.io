@@ -342,8 +342,7 @@ staticman:
   branch     : "master"
   endpoint   : "https://dev.staticman.net/v3/entry/github/goGPS-Project/gogps-project.github.io/master/"
   reCaptcha:
-    enabled: true
     siteKey: "6Ldz89IUAAAAAPTjWS6ZlC4HwLJe7kl7fyODBS4Y"
-    secret: "YXxFCYrul4mWxGS6W2KFvLq5Gh9JIkuGFgj0D6b1aSajkcbzHe1bWQkNgixpXQVBpqeAxWa9XF4452eYYyyo9haHBaHmDIgN+LnnHMT0RCt5foBX7KJ6X8YKKnwWvX4xGE/vWaIihtiqcTOGTClIL8BJEhpq/x/ivAUvoECmCQw="
+    secret: "AwxtiRnkQlWCNUqxgWsuPrkUEynKOVB00MiB3+0JudrKAu8pYkDXnygLZiERERPID2lxP8egr6U6K5QMjJfuJZ3CE5DQ28DaDQfgWaBzRs0ikAC9TIPJmJ/oLwZH2xXSSwwGF0lTjhUmYCRuOs4y85J4HMVS1GExh6PQhaGKiHM="
   # To encrypt strings use the following endpoint:
-  # https://api.staticman.net/v2/encrypt/{TEXT TO BE ENCRYPTED}
+  # https://dev.staticman.net/v3/encrypt/
