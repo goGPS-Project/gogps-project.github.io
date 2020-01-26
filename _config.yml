@@ -340,7 +340,7 @@ sass:
 staticman:  
   repository : "goGPS-Project/gogps-project.github.io"
   branch     : "master"
-  endpoint   : "https://api.staticman.net/v2/connect/goGPS-Project/gogps-project.github.io/master/"
+  endpoint   : "https://dev.staticman.net/v3/entry/github/goGPS-Project/gogps-project.github.io/master/"
   reCaptcha:
     enabled: true
     siteKey: "6Ldz89IUAAAAAPTjWS6ZlC4HwLJe7kl7fyODBS4Y"
