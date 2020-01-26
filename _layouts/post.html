@@ -33,10 +33,11 @@ layout: base
   {% endcase %}
 {% endfor %}
 
-<!--<section>
+{% if false %}
+<section>
   {{ content }}
   {% if page.comments == true %}
     {% include comments.html %}
   {% endif %}
 </section>
--->
+{% endif %}
