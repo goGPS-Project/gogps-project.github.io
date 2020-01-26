@@ -4,6 +4,7 @@ title:  "Welcome to the goGPS project website"
 date:   2020-01-22 18:06:45 +0100
 categories: goGPS site update
 author: andrea
+comments: true
 ---
 ![goGPS](/assets/img/goGPS_open.png){:.cimage_block style="display:block;" width="368px" height="156px"}
 During the last stages of development of the release 1.0 of goGPS, the creation of the **documentation** necessary to let users try our software was of primary importance. We created the new incarnation of goGPS MATLAB to limit most of the effort required to process RINEX files, but this doesn't mean that using goGPS is simple. More are the options implemented more are the description needed to let anyone use the software.
