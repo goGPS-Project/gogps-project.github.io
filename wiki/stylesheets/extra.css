@@ -2,6 +2,12 @@
     background-color: rgb(39, 39, 40);
 }
 
+@media only screen and (max-width: 76.1875em){
+  html .md-nav--primary .md-nav__title--site {
+    background-color: rgb(39, 39, 40);
+  }
+}
+
 /*!
  * FONTS ========================================================================
 */
