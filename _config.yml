@@ -45,7 +45,7 @@ logo:                  /assets/icons/icon.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   name:                goGPS Software
-  email:               <support@gogps-project.org>
+  email:               <gatti.andrea@gmail.com>
   twitter:             gogps
 
 # Add links to the sidebar.

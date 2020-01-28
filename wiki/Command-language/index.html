@@ -1016,9 +1016,8 @@
                 
                 
                 <h1 id="gogps-command-language">goGPS command language</h1>
-<p>goGPS have been designed to be flexible and expandable. To allow different types of processing and complex operations a pseudo-language have been created. It allows sequential and parallel operations. On this page, the meaning of all the commands can be found. For a short Help on all the commands available type <code>goHelpCommands</code> in MATLAB command window.
-<img alt="goGPS Language Help" src="../images/goGPS_LanguageHelp.png?raw=true" /></p>
-<hr />
+<p>goGPS have been designed to be flexible and expandable. To allow different types of processing and complex operations a pseudo-language have been created. It allows sequential and parallel operations. On this page, the meaning of all the commands can be found. For a short Help on all the commands available type <code>goHelpCommands</code> in MATLAB command window.</p>
+<h2 id="_1"><img alt="goGPS Language Help" src="../images/goGPS_LanguageHelp.png?raw=true" /></h2>
 <h2 id="index-of-contents">Index of contents</h2>
 <ol>
 <li><a href="#receiver-data-organization">Receiver data organization</a></li>
@@ -1369,9 +1368,18 @@ PKILL
 <li><strong>G_MAP_R</strong> -            Map of station coordinates (Google Maps Background) + RAOB - (one plot for all the receivers)</li>
 <li><strong>DTM_MAP_R</strong> -          Map of station coordinates (DTM background) + RAOB - (one plot for all the receivers)</li>
 <li><strong>DA</strong> -                 Data Availability - (one set of plots per receiver)</li>
-<li><strong>ENU</strong> -                East Nord Up positions - (one plot per receiver)</li>
-<li><strong>PUP</strong> -                Planar Up positions - (one plot per receiver)</li>
-<li><strong>ENUBSL</strong> -             East Nord Up baseline - this modifier requires to specify both targets and reference receiver</li>
+<li><strong>ENU</strong> -                East Nord Up positions - (one plot per receiver)<ul>
+<li>This command additionally accept the modifier <code>--ctype=&lt;coo_type&gt;</code> that indicates the type of coordinates to be used as a source for the plot (<strong>0</strong> coordinates of the sessions, <strong>1</strong> first additional coordinates, <strong>2</strong> second additional coordinates, <strong>3</strong> third additional coordinates)</li>
+</ul>
+</li>
+<li><strong>PUP</strong> -                Planar Up positions - (one plot per receiver)<ul>
+<li>This command additionally accept the modifier <code>--ctype=&lt;coo_type&gt;</code> that indicates the type of coordinates to be used as a source for the plot (<strong>0</strong> coordinates of the sessions, <strong>1</strong> first additional coordinates, <strong>2</strong> second additional coordinates, <strong>3</strong> third additional coordinates)</li>
+</ul>
+</li>
+<li><strong>ENUBSL</strong> -             East Nord Up baseline - this modifier requires to specify both targets and reference receiver<ul>
+<li>This command additionally accept the modifier <code>-ctype=&lt;coo_type&gt;</code> that indicates the type of coordinates to be used as a source for the plot (<strong>0</strong> coordinates of the sessions, <strong>1</strong> first additional coordinates, <strong>2</strong> second additional coordinates, <strong>3</strong> third additional coordinates)</li>
+</ul>
+</li>
 <li><strong>PUPBSL</strong> -             Planar Up baseline - this modifier requires to specify both targets and reference receiver</li>
 <li><strong>XYZ</strong> -                XYZ Earth-Fixed - Earth-Centered positions - (one plot per receiver)</li>
 <li><strong>CKW</strong> -                Clock errors of the last session - (one plot per receiver)</li>

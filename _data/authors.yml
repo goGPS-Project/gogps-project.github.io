@@ -4,7 +4,7 @@
 gogps:
   # Replace <...> with your own (remove the < >)
   name:              goGPS Software
-  email:             <support@gogps-project.org.com>
+  email:             <gatti.andrea@gmail.com>
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
@@ -28,10 +28,9 @@ gogps:
     twitter:         gogps
     github:          goGPS-project
     # download:        <url>
-    email:           support@gogps-project.org
+    email:           gatti.andrea@gmail.com
 
 andrea:
-  # Replace <...> with your own (remove the < >)
   name:              Andrea Gatti
   email:             <gatti.andrea@gmail.com>
 
