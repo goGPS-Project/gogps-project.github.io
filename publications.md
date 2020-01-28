@@ -4,13 +4,13 @@ image: /assets/img/publications.jpg
 
 # Publications
 
-![Screenshot](/assets/img/publications.jpg){:.lead}
-
 In this page you will find the links to:
 
  * papers on goGPS
  * works using goGPS
  * (part of the) useful publications that we used in the development
+
+![Screenshot](/assets/img/publications.jpg){:.lead}
 
 ## Scientific papers on goGPS
 
@@ -21,15 +21,15 @@ At the moment we are still working on writing a reference publication describing
 
 ## Researches regarding goGPS or its development and testing
   * [**2019** - **Assessment of GNSS Zenith Total Delay Estimation Using Smart Devices** Tagliaferro, Gatti, Realini](https://www.researchgate.net/publication/336455872_Assessment_of_GNSS_Zenith_Total_Delay_Estimation_Using_Smart_Devices)
-  * [**2019 - (presentation) **An analysis of tropospheric delays using goGPS software on all GEONET stations during the passage of Typhoon Jebi in September 2018** - Gatti, Realini, Tagliaferro](https://www.researchgate.net/publication/333419456_An_analysis_of_tropospheric_delays_using_goGPS_software_on_all_GEONET_stations_during_the_passage_of_Typhoon_Jebi_in_September_2018)
-  * [**2018 - (poster) **goGPS free and open source GNSS software for tropospheric delay estimation** - Gatti, Tagliaferro, Realini](https://www.researchgate.net/publication/325960230_goGPS_free_and_open_source_GNSS_software_for_tropospheric_delay_estimation)
+  * [**2019** - (presentation) **An analysis of tropospheric delays using goGPS software on all GEONET stations during the passage of Typhoon Jebi in September 2018** - Gatti, Realini, Tagliaferro](https://www.researchgate.net/publication/333419456_An_analysis_of_tropospheric_delays_using_goGPS_software_on_all_GEONET_stations_during_the_passage_of_Typhoon_Jebi_in_September_2018)
+  * [**2018** - (poster) **goGPS free and open source GNSS software for tropospheric delay estimation** - Gatti, Tagliaferro, Realini](https://www.researchgate.net/publication/325960230_goGPS_free_and_open_source_GNSS_software_for_tropospheric_delay_estimation)
   * [**2017** - **Precise GNSS Positioning Using Smart Devices** - Realini, Caldera, Pertusini, Sampietro](https://www.researchgate.net/publication/320591917_Precise_GNSS_Positioning_Using_Smart_Devices)
   * [**2015** - **Extending goGPS for Snapshot Positioning** - Ziglioli, Realini](https://www.researchgate.net/publication/280243710_Extending_goGPS_for_Snapshot_Positioning)
   * [**2015** - **Geodetic monitoring experiment by low-cost GNSS receivers and goGPS positioning engine** - Caldera, Realini, Yoshida](https://www.researchgate.net/publication/280528362_Geodetic_monitoring_experiment_by_low-cost_GNSS_receivers_and_goGPS_positioning_engine)
   * [**2013** - **Research on a Positioning Application by RTK Technique and with goGPS** - Wen Xu, Wen He](https://www.researchgate.net/publication/272045551_Research_on_a_Positioning_Application_by_RTK_Technique_and_with_goGPS)
   * [**2013** - **goGPS: Open Source Software for Enhancing the Accuracy of Low-cost Receivers by Single-frequency Relative Kinematic Positioning** - Realini, Reguzzoni](https://www.researchgate.net/publication/257836193_goGPS_Open_Source_Software_for_Enhancing_the_Accuracy_of_Low-cost_Receivers_by_Single-frequency_Relative_Kinematic_Positioning)
-  * [**2013 - (poster) **Latest developments in goGPS open source positioning software: EGNOS corrections, integer ambiguity resolution by LAMBDA method and multi-constellation support** - Herrera, Suhandri, Realini, de Lacy, Reguzzoni](https://www.researchgate.net/publication/316662708_Latest_developments_in_goGPS_open_source_positioning_software_EGNOS_corrections_integer_ambiguity_resolution_by_LAMBDA_method_and_multi-constellation_support)
-  * [**2013 - (presentation) **Using goGPS software with a multi-antenna GPS system to improve navigation with low-cost receivers** - Caldera, Gatti, Pertusini, Realini, Reguzzoni, Sampietro](https://www.researchgate.net/publication/259346302_Using_goGPS_software_with_a_multi-antenna_GPS_system_to_improve_navigation_with_low-cost_receivers)
+  * [**2013** - (poster) **Latest developments in goGPS open source positioning software: EGNOS corrections, integer ambiguity resolution by LAMBDA method and multi-constellation support** - Herrera, Suhandri, Realini, de Lacy, Reguzzoni](https://www.researchgate.net/publication/316662708_Latest_developments_in_goGPS_open_source_positioning_software_EGNOS_corrections_integer_ambiguity_resolution_by_LAMBDA_method_and_multi-constellation_support)
+  * [**2013** - (presentation) **Using goGPS software with a multi-antenna GPS system to improve navigation with low-cost receivers** - Caldera, Gatti, Pertusini, Realini, Reguzzoni, Sampietro](https://www.researchgate.net/publication/259346302_Using_goGPS_software_with_a_multi-antenna_GPS_system_to_improve_navigation_with_low-cost_receivers)
   * [**2012** - **Enhanced satellite positioning as a web service with goGPS open source software** - Realini, Yoshida, Reguzzoni, Raghavan](https://www.researchgate.net/publication/256841853_Enhanced_satellite_positioning_as_a_web_service_with_goGPS_open_source_software)
   * [**2012** - **Implementing grid enabled web services for enhanced positioning using low-cost GPS devices** - Yoshida, Realini, Fenoy, Raghavan](https://www.researchgate.net/publication/256841667_Implementing_grid_enabled_web_services_for_enhanced_positioning_using_low-cost_GPS_devices)
   * [**2010** - **goGPS: Accurate Road Mapping using Low-cost GPS Receivers** - Pertusini, Realini, Reguzzoni](https://www.researchgate.net/publication/256841983_goGPS_Accurate_Road_Mapping_using_Low-cost_GPS_Receivers)
