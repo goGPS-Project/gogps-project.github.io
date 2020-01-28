@@ -55,6 +55,17 @@ Contributors (in temporal order):
 * Louis Osei-Poku
 * Paiyuan Zhou
 
+### List of the contributors of the Java version of goGPS
+Developers of the original goGPS Java core:
+
+* Eugenio Realini
+* Lorenzo Patocchi
+
+Other Contributors:
+
+* Daisuke Yoshida
+* Emanuele Ziglioli
+
 ### List of the contributors of the new goGPS 1.0
 Developers of the new goGPS core:
 
