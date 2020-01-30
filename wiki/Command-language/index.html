@@ -1510,19 +1510,21 @@ SHOW T* ZTD
 <p><img alt="Residuals and outliers" src="../images/ResOutliers.png?raw=true" /></p>
 <p>To regularize the solution for each cell of 1x1 degree with less than 2 observations 1 null pseudo-observation is added to the dataset to be interpolated.</p>
 <p>For each frequency present in the receiver, a multi-step procedure is used to generate the goGPS multipath maps
-1. Uncombined carrier-phase residuals are all used in a LS solution to compute the <a href="https://www.osapublishing.org/abstract.cfm?uri=josa-66-3-207">Zernike expansion</a> coefficients up to degree 43 (can be changed in the code). These coefficients are then used to synthesize a map of 0.5x0.5 degree in the cartesian coordinate system elevation x azimuth (180x720). Zernike polynomials are exceptional to map low degree changes on the disk (e.g. PCV) but for Multipath maps, a higher degree is preferable. Zernike polynomials are capable of describing changes in the signal depending on the distance from the center of the disk, with a radius close to 1, higher frequencies can be represented. In goGPS we perform two analyses at the same degree level using two mapping functions to map the elevation to the unitary radius so that we can better describe the undulations due to multipath. The two mapping functions are:
-   <script type="math/tex; mode=display">m1 = pi/2 * (1-cos(el))</script>
-<script type="math/tex; mode=display">m2 = pi/2 * (1-cos(m1))</script>
+1. Uncombined carrier-phase residuals are all used in a LS solution to compute the <a href="https://www.osapublishing.org/abstract.cfm?uri=josa-66-3-207">Zernike expansion</a> coefficients up to degree 43 (can be changed in the code). These coefficients are then used to synthesize a map of 0.5x0.5 degree in the cartesian coordinate system elevation x azimuth (180x720). Zernike polynomials are good to map low degree changes on the disk (e.g. PCV) but for Multipath maps, a higher degree is preferable. Zernike polynomials are capable of describing changes in the signal depending on the distance from the center of the disk, with a radius close to 1, higher frequencies can be represented. In goGPS we perform 3 analyses at the same degree level using 3 mapping functions to map the elevation to the unitary radius so that we can better describe the undulations due to multipath. The two mapping functions are:
+   <script type="math/tex; mode=display"> MF1 = cos(el)^2</script>
+<script type="math/tex; mode=display"> MF2 = sin(pi/2 * cos(el)^2)</script>
+<script type="math/tex; mode=display"> MF3 = sin(pi/2 * cos(el))</script>
 </p>
-<p>After a first analysis, the second is performed on the residuals of the first and a synthetic final map is computed by adding the two matrixes.</p>
+<p><img alt="MP Mapping functions" src="../images/MP_MF.png?raw=true" /></p>
+<p>After a first analysis, the second is performed on the residuals of the first, and so the third. A synthetic final map is computed by adding the three matrixes.</p>
 <p><img alt="MP Step 1, 2" src="../images/MP_Steps_1_2.png?raw=true" />
-<em>The figures show the maps retrieved from the two iterations of the Zernike based interpolation for the WTZZ station.</em></p>
+<em>The figures show the maps retrieved from the first two iterations of the Zernike based interpolation for the WTZZ station.</em></p>
 <ol>
 <li>Stacking maps can be generated from the residuals of the previous step that provides an interpolation of the lower frequencies. The gridding procedure uses cells of 5 degrees in longitude and 1 in latitude, for each cell the mean is taken, each value is converted in polar coordinates and a final grid at the resolution of 0.5 degrees in cartesian coordinate (elevation x azimuth) is created by bi-linear interpolation in the polar coordinate system.</li>
 </ol>
-<p><img alt="MP Step 3" src="../images/MP_Steps_3.png?raw=true" />
-<em>This is the final gridding step on the residuals of the WTZZ station.</em></p>
-<p>At the final step, the maps are summed all together to generate two possible applicable models, the first smoother, and the second containing the higher frequencies of the staking map. The user can decide the map that works best in his project by selecting it in the settings.</p>
+<p><img alt="MP Step 3" src="../images/MP_Steps_3_4.png?raw=true" />
+<em>These are the third iteration and the final gridding step on the residuals of the WTZZ station.</em></p>
+<p>At the end, the maps are summed all together to generate two possible applicable models, the first smoother, and the second containing the higher frequencies of the staking map. The user can decide the map that works best in his project by selecting it in the settings.</p>
 <p><img alt="MP final maps" src="../images/MP_Final.png?raw=true" />
 <em>On the left the smoother solution, on the right the highest details of the staking are preserved</em></p>
 <h3 id="mpest">MPEST</h3>
