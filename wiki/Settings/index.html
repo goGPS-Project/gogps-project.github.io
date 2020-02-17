@@ -338,8 +338,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tab-regularization" class="md-nav__link">
-    Tab Regularization
+  <a href="#tab-parametrization-ppp" class="md-nav__link">
+    Tab Parametrization PPP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab-parametrization-network" class="md-nav__link">
+    Tab Parametrization Network
   </a>
   
 </li>
@@ -497,8 +504,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tab-regularization" class="md-nav__link">
-    Tab Regularization
+  <a href="#tab-parametrization-ppp" class="md-nav__link">
+    Tab Parametrization PPP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab-parametrization-network" class="md-nav__link">
+    Tab Parametrization Network
   </a>
   
 </li>
@@ -557,9 +571,10 @@ You can also modify 99% of the settings using the goGPS Edit GUI that will be au
 <li><a href="#tab-commands">Tab Commands</a></li>
 <li><a href="#tab-data-sources">Tab Data Sources</a></li>
 <li><a href="#tab-receiver-info">Tab Receiver Info</a></li>
-<li><a href="#tab-pre-processing">Tab Pre-Pprocessing</a></li>
+<li><a href="#tab-pre-processing">Tab Pre-Processing</a></li>
 <li><a href="#tab-processing">Tab Processing</a></li>
-<li><a href="#tab-regularization">Tab Regularization</a></li>
+<li><a href="#tab-parametrization-ppp">Tab Parametrization PPP</a></li>
+<li><a href="#tab-parametrization-network">Tab Parametrization Network</a></li>
 <li><a href="#tab-atmosphere">Tab Atmosphere</a></li>
 <li><a href="#bottom_bar">Bottom bar</a></li>
 </ol>
@@ -834,9 +849,12 @@ The list of corrections that can be applied to the GNSS observations are:</p>
 </ul>
 <p><strong>Generic Options</strong></p>
 <ul>
-<li><strong>"Observation weighting"</strong> - Select the type of observation weighting function. These are the available options:</li>
-<li>uniform</li>
-<li>satellite elevation </li>
+<li><strong>"Observation weighting"</strong> - Select the type of observation weighting function. These are the available options:<ul>
+<li>uniform - all observations equally weighted</li>
+<li>satellite elevation $sin(el)$</li>
+<li>square of satellite elevation $sinn(el)^2$</li>
+</ul>
+</li>
 <li><strong>"Max code observation err"</strong> - the pseudo-range observations having residuals above this threshold are excluded from the LS adjustment (this threshold works only for the uncombined engine).</li>
 <li><strong>"Max code observation err"</strong> - the carrier phase observations having residuals above this threshold are excluded from the LS adjustment.</li>
 </ul>
@@ -913,20 +931,197 @@ goGPS is object-oriented, every receiver is considered a unique GNSS_Station, in
 <p><strong>Output folder</strong>
 In this tab the folder of final storage of the results can be changed. Note that some results will be saved into sub-folders automatically created.</p>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
-<h3 id="tab-regularization">Tab Regularization</h3>
-<p>In this tab, the user can set all the regularization values to be used in the estimation process.</p>
-<p><img alt="goGPS Regularization" src="../images/goGPS_Regularization.png?raw=true" /></p>
-<p><strong>Regularization options</strong>
- The regularization of the tropospheric parameters plays a very important factor in their estimation. goGPS is very flexible and many parameters can be tweaked:</p>
+<h3 id="tab-parametrization-ppp">Tab Parametrization PPP</h3>
+<p>In this tab, the user can set the parametrization for the PPP processing.
+Note: The term regularization is use for Tykhonov regularization also know as ridge regression also know as L2 regularization, it is implemented by pseudobservation.
+<img alt="goGPS Regularization" src="../images/goGPS_Regularization.png?raw=true" /></p>
+<p><strong>Coordinates</strong>
+ The parametrization of the coordinates can be set in this panel</p>
 <ul>
-<li><strong>Clock regularization</strong> - this is a critical parameter, usually it must not be changed, is set to a very high value meaning basically no regularization. (lower value means higher regularization).</li>
+<li><strong>Estimate</strong> - This tick box will determine if the coordinates are estimated or not in the adjustment.</li>
+<li><strong>Time parametrization</strong> - This pop up let the user choose the type of time parametrization wanted, the available options are:<ul>
+<li><strong>1 - Costant</strong> - One set of coordinates for the whole session.</li>
+<li><strong>2 - Epoch wise</strong> - One set of coordinates per epoch.</li>
+<li><strong>4 - Regular spaced constant</strong> - Sets of coordinates spaced regulary</li>
+<li><strong>5 - Linear spline</strong> - Linear spline</li>
+<li><strong>6 - Cubic spline</strong> - Cubic spline</li>
 </ul>
-<p><strong>ZTD (and gradients) estimation</strong> - all the options available for the estimation of ZTD are duplicated for ZTD gradients.</p>
+</li>
+<li><strong>Rate</strong> - Temporal rate of the parameter.Ignored if Time parametrization set to constant</li>
+<li><strong>Frequency parametrization</strong> - This pop up will let you choose the possible parametrization in term of frequency and tracking (Only in uncombined mode)<ul>
+<li><strong>1 - Per tracking</strong> - One set of coordinates for each different tracking.</li>
+<li><strong>2 - Per frequency</strong> - One set of coordinates for each different frequency.</li>
+<li><strong>3 - One for all</strong> - One set of coordinates for all tracking.</li>
+<li><strong>4 - Per binned frequency</strong> - One set of coordinates for each different frequency (Glonass frequency binned per band).</li>
+<li><strong>5 - Per frequency and constellation</strong> - One set of coordinates for each frequency divided also by constellation.</li>
+<li><strong>6 - Per rinex band</strong> - One set of coordinates for each RINEX 3 band.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Ionosphere</strong> - This  panel deals with the parametrization of the ionosphere</p>
 <ul>
-<li><strong>Absolute regularization</strong> - this parameter is rarely changed, a strong regularization causes goGPS to estimate a smaller correction to the a-priori value.</li>
-<li><strong>First derivate regularization</strong> - a regularization on the first derivate means to limit the speed of variation of ZTD, a smaller value causes a smoother ZTD estimation.</li>
-<li><strong>Spline rate</strong> - goGPS usually estimate an epoch by epoch ZTD but this rapidly increases the size of the normal equations matrix; when processing big networks it might be useful to speed-up the computations by using splines. </li>
-<li><strong>Order of the spline</strong> - goGPS is able to use linear or cubic spline for computing ZTD; when "none" is selected the software will compute an epoch by epoch solution.</li>
+<li><strong>Estimate</strong> - This tick box will determine if the ionospheric parameter is estimated or not in the adjustment.</li>
+</ul>
+<p><strong>Troposphere-ZTD</strong>
+ In this panel on the left column the ZTD parametrization can be set</p>
+<ul>
+<li><strong>Estimate</strong> - This tick box will determine if the ZTD parameter is estimated or not in the adjustment.</li>
+<li><strong>Time parametrization</strong> - This pop up can be used to choose the time parametrization:<ul>
+<li><strong>1 - Epoch wise</strong> - One ztd paramter per epoch.</li>
+<li><strong>2 - Linear spline</strong> - Ztd parametrized as a linear spline.</li>
+<li><strong>3 - Cubic spline</strong> - Ztd parametrized as a cubic spline.</li>
+</ul>
+</li>
+<li><strong>Rate</strong> - Rate of ZTD spline</li>
+<li><strong>Absolute Regularization</strong> - Absolute regularization of each ZTD paramter by means of pseudo-observation with standard deviation equal to the value of the field</li>
+<li><strong>Differential Regularization</strong> - Regularize the difference of the paramter t+1 and t with an obervation with standard deviation equal to the value of the field (unit in m/sqrt(hour))</li>
+</ul>
+<p><strong>Troposphere-ZTD Gradients</strong>
+ In this panel on the left column the ZTD parametrization can be set</p>
+<ul>
+<li><strong>Estimate</strong> - This tick box will determine if the ZTD gradients parameter (North and East) are estimated or not in the adjustment.</li>
+<li><strong>Time parametrization</strong> - This pop up can be used to choose the time parametrization:<ul>
+<li><strong>1 - Epoch wise</strong> - One  set of Ztd gradients paramter per epoch.</li>
+<li><strong>2 - Linear spline</strong> - Ztd gradients parametrized as a linear spline.</li>
+<li><strong>3 - Cubic spline</strong> - Ztd gradients parametrized as a cubic spline.</li>
+</ul>
+</li>
+<li><strong>Rate</strong> - Rate of Ztd gradient spline</li>
+<li><strong>Absolute Regularization</strong> - Absolute regularization of each ZTD gradient paramter by means of pseudo-observation with standard deviation equal to the value of the field</li>
+<li><strong>Differential Regularization</strong> - Regularize the difference of the paramter t+1 and t with an obervation with standard deviation equal to the value of the field (unit in m/sqrt(hour))</li>
+</ul>
+<p><strong>Bias</strong></p>
+<p>In this panel it is possible to parametrize the variuos receiver bias</p>
+<ul>
+<li><strong>Separate pr ph clock</strong> - This tick box will separate clock by pahse and pseudorange in the adjustment</li>
+</ul>
+<p>The possible paramters are organizized in a tab, they are:</p>
+<ul>
+<li><strong>Clock</strong> - Clock desyncronization</li>
+<li><strong>Inter Frequency Bias</strong> - Bias between different frequency tracked by the receiver</li>
+<li><strong>Inter Tracking Bias</strong> - Bias between different code tracked by the receiver</li>
+</ul>
+<p>The table let the user choose the parametrization with five column:</p>
+<ul>
+<li><strong>Estimate</strong> - This tick box will determine if the  parameter is estimated or not in the adjustment.</li>
+<li><strong>Time parametrization</strong> - This pop up can be used to choose the time parametrization:<ul>
+<li><strong>1 - Constant</strong> - One paramter per the whole session.</li>
+<li><strong>2 - Epcoh wise</strong> - One paramter per epoch</li>
+<li><strong>4 - Regular spaced constant</strong> - Sets of coordinates spaced regulary</li>
+<li><strong>5 - Linear spline</strong> - Linear spline</li>
+<li><strong>6 - Cubic spline</strong> - Cubic spline</li>
+</ul>
+</li>
+<li><strong>Rate</strong> - Rate of paramater </li>
+<li><strong>Absolute Regularization</strong> - Absolute regularization of each ztd paramter by means of pseudo-observation with standard deviation equal to the value of the field</li>
+<li><strong>Differential Regularization</strong> - Regularize the difference of the paramter t+1 and t with an obervation with standard deviation equal to the value of the field (unit in m/sqrt(hour))</li>
+</ul>
+<h3 id="tab-parametrization-network">Tab Parametrization Network</h3>
+<p>In this tab, the user can set the parametrization for the network processing.
+Note: The term regularization is use for Tykhonov regularization also know as ridge regression also know as L2 regularization, it is implemented by pseudobservation.
+<img alt="goGPS Regularization" src="../images/goGPS_Regularization.png?raw=true" /></p>
+<p><strong>Coordinates</strong>
+ The parametrization of the coordinates can be set in this panel</p>
+<ul>
+<li><strong>Estimate</strong> - This tick box will determine if the coordinates are estimated or not in the adjustment.</li>
+<li><strong>Time parametrization</strong> - This pop up let the user choose the type of time parametrization wanted, the available options are:<ul>
+<li><strong>1 - Costant</strong> - One set of coordinates for the whole session.</li>
+<li><strong>2 - Epoch wise</strong> - One set of coordinates per epoch.</li>
+<li><strong>4 - Regular spaced constant</strong> - Sets of coordinates spaced regulary</li>
+<li><strong>5 - Linear spline</strong> - Linear spline</li>
+<li><strong>6 - Cubic spline</strong> - Cubic spline</li>
+</ul>
+</li>
+<li><strong>Rate</strong> - Temporal rate of the parameter. Ignored if Time parametrization set to constant</li>
+<li><strong>Frequency parametrization</strong> - This pop up will let you choose the possible parametrization in term of frequency and tracking (Only in uncombined mode)<ul>
+<li><strong>1 - Per tracking</strong> - One set of coordinates for each different tracking.</li>
+<li><strong>2 - Per frequency</strong> - One set of coordinates for each different frequency.</li>
+<li><strong>3 - One for all</strong> - One set of coordinates for all tracking.</li>
+<li><strong>4 - Per binned frequency</strong> - One set of coordinates for each different frequency (Glonass frequency binned per band).</li>
+<li><strong>5 - Per frequency and constellation</strong> - One set of coordinates for each frequency divided also by constellation.</li>
+<li><strong>6 - Per rinex band</strong> - One set of coordinates for each RINEX 3 band.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Ionosphere</strong> - This  panel deals with the parametrization of the ionosphere</p>
+<ul>
+<li><strong>Estimate</strong> - This tick box will determine if the ionospheric parameter is estimated or not in the adjustment.</li>
+</ul>
+<p><strong>Troposphere</strong>
+ In this panel let the user decide how to parametrize the tropospheric paramter. The two paramters are organizized in a tab, they are:</p>
+<ul>
+<li><strong>ZTD</strong> - Estimate a correction to the zenith tropospheric delay</li>
+<li><strong>ZTD Gradient</strong> - Estimate north and east ZTD gradients</li>
+</ul>
+<p>The table let the user choose the parametrization with five column:</p>
+<ul>
+<li><strong>Estimate</strong> - This tick box will determine if the  parameter is estimated or not in the adjustment.</li>
+<li><strong>Time parametrization</strong> - This pop up can be used to choose the time parametrization:<ul>
+<li><strong>1 - Constant</strong> - One paramter per the whole session.</li>
+<li><strong>2 - Epcoh wise</strong> - One paramter per epoch</li>
+<li><strong>4 - Regular spaced constant</strong> - Sets of coordinates spaced regulary</li>
+<li><strong>5 - Linear spline</strong> - Linear spline</li>
+<li><strong>6 - Cubic spline</strong> - Cubic spline</li>
+</ul>
+</li>
+<li><strong>Rate</strong> - Rate of paramater </li>
+<li><strong>Absolute Regularization</strong> - Absolute regularization of each ztd paramter by means of pseudo-observation with standard deviation equal to the value of the field</li>
+<li><strong>Differential Regularization</strong> - Regularize the difference of the paramter t+1 and t with an obervation with standard deviation equal to the value of the field (unit in m/sqrt(hour))</li>
+</ul>
+<p><strong>Bias Receiver</strong>
+ In this panel it is possible to parametrize the variuos receiver bias</p>
+<ul>
+<li><strong>Separate pr ph clock</strong> - This tick box will separate clock by pahse and pseudorange in the adjustment</li>
+</ul>
+<p>The possible paramters are organizized in a tab, they are:</p>
+<ul>
+<li><strong>Clock</strong> - Clock desyncronization</li>
+<li><strong>Inter Frequency Bias</strong> - Bias between different frequency tracked by the receiver</li>
+<li><strong>Inter Tracking Bias</strong> - Bias between different code tracked by the receiver</li>
+</ul>
+<p>The table let the user choose the parametrization with 5 column:</p>
+<ul>
+<li><strong>Estimate</strong> - This tick box will determine if the  parameter is estimated or not in the adjustment.</li>
+<li><strong>Time parametrization</strong> - This pop up can be used to choose the time parametrization:<ul>
+<li><strong>1 - Constant</strong> - One paramter per the whole session.</li>
+<li><strong>2 - Epcoh wise</strong> - One paramter per epoch</li>
+<li><strong>4 - Regular spaced constant</strong> - Sets of coordinates spaced regulary</li>
+<li><strong>5 - Linear spline</strong> - Linear spline</li>
+<li><strong>6 - Cubic spline</strong> - Cubic spline</li>
+</ul>
+</li>
+<li><strong>Rate</strong> - Rate of paramater </li>
+<li><strong>Absolute Regularization</strong> - Absolute regularization of each ztd paramter by means of pseudo-observation with standard deviation equal to the value of the field</li>
+<li><strong>Differential Regularization</strong> - Regularize the difference of the paramter t+1 and t with an obervation with standard deviation equal to the value of the field (unit in m/sqrt(hour))</li>
+</ul>
+<p><strong>Bias Satellite</strong>
+<img alt="goGPS Regularization" src="../images/goGPS_Regularization.png?raw=true" /></p>
+<p>In this panel it is possible to parametrize the variuos satellite bias</p>
+<ul>
+<li><strong>Separate pr ph clock</strong> - This tick box will separate clock by pahse and pseudorange in the adjustment</li>
+</ul>
+<p>The possible paramters are organizized in a tab, they are:</p>
+<ul>
+<li><strong>Clock</strong> - Clock desyncronization</li>
+<li><strong>Inter Frequency Bias</strong> - Bias between different frequency tracked by the receiver</li>
+<li>
+<p><strong>Inter Tracking Bias</strong> - Bias between different code tracked by the receiver
+The table let the user choose the parametrization with 5 column:</p>
+</li>
+<li>
+<p><strong>Estimate</strong> - This tick box will determine if the  parameter is estimated or not in the adjustment.</p>
+</li>
+<li><strong>Time parametrization</strong> - This pop up can be used to choose the time parametrization:<ul>
+<li><strong>1 - Constant</strong> - One paramter per the whole session.</li>
+<li><strong>2 - Epcoh wise</strong> - One paramter per epoch</li>
+<li><strong>4 - Regular spaced constant</strong> - Sets of coordinates spaced regulary</li>
+<li><strong>5 - Linear spline</strong> - Linear spline</li>
+<li><strong>6 - Cubic spline</strong> - Cubic spline</li>
+</ul>
+</li>
+<li><strong>Rate</strong> - Rate of paramater </li>
+<li><strong>Absolute Regularization</strong> - Absolute regularization of each ztd paramter by means of pseudo-observation with standard deviation equal to the value of the field</li>
+<li><strong>Differential Regularization</strong> - Regularize the difference of the paramter t+1 and t with an obervation with standard deviation equal to the value of the field (unit in m/sqrt(hour))</li>
 </ul>
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="tab-atmosphere">Tab Atmosphere</h3>
