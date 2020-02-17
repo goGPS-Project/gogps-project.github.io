@@ -135,3 +135,25 @@ eugenio:
   accent_image:
     background:      '#202020'
     overlay:         false
+
+alessandra:
+  name:              Alessandra Mascitelli
+  email:             <alessandra.mascitelli@polimi.it>
+  about:             |
+    Researcher @Politecnico di Milano (Milano, Italy).
+    Geodesist working on GNSS monitoring 🛰    
+    Alessandra Mascitelli is one of the main users of goGPS.
+
+  picture:           
+      path:          /assets/img/profile/Alessandra.jpg
+      srcset:
+        1x:          /assets/img/profile/Alessandra.jpg
+        2x:          /assets/img/profile/Alessandra@2x.jpg
+  github:            Alessandra90
+
+  # Every author can have his/her own accent color and image.
+  # This will change the appearance of all pages of this author.
+  accent_color:      '#268bd2'
+  accent_image:
+    background:      '#202020'
+    overlay:         false
