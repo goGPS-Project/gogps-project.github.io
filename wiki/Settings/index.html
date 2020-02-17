@@ -705,14 +705,15 @@ The components that can be seen here are just 3:</p>
 <li><strong>"Project home directory"</strong> - this field points to the <prj_home>. The project home is the folder containing all the folders of the project. It is very important to notice that all the relative paths that can be used in the configuration start from this folder, this allows having a portable project as long as into the .ini file all the other resources paths are written as relative paths and everything is moved together. The GUI automatically translates full paths to relative paths.</li>
 </ul>
 <p><strong>Sessions</strong>
-In the sessions panel is possible to define the limits of epoch to process, the time keywords used for the definition of the paths will be substituted accordingly to these.
-As long as the resources and observations files are defined with time keywords goGPS allows the definition of flexible limits (e.g. it is possible to process daily sessions even if the observations are stored into hourly RINEX files, and vice-versa)</p>
+In the sessions panel, it is possible to define the limits of epochs to process, time keywords (e.g. ${WWWW}, ${DOY}, ${YYYY}, ...) used for the definition of the paths will be substituted accordingly to the current session.
+goGPS manage the processing of a set of RINEX file in a relatively complicated but flexible way. The user defines the time span that goGPS will be able to consider by selecting <code>Start</code> and <code>Stop</code> dates, this will be the maximum size of the project, whether or not it will be entirely processed. The number of epochs processed will depend on other parameters: the for loop on sessions and the duration of the session itself. If a period of two weeks is selected (Start Stop limits) the user can run 14 sessions each with a dimension of 86400s (daily).
+(Note that: it is possible to process daily sessions even if the observations are stored into hourly RINEX files, and vice-versa)</p>
 <ul>
-<li><strong>"Start"</strong> - marks the first epoch to process.</li>
-<li><strong>"Stop"</strong> - marks the last epoch to process.</li>
-<li><strong>"Session duration"</strong> - this is useful to limit the number of epochs to batch process, or to get solutions at higher rates.<ol>
-<li>e.g. 86400 seconds - will process 24 hours of data all together in a unique LS adjustment;</li>
-<li>e.g. 3600 seconds - will generate independent (if no buffer is selected) solutions every hour of data to have a series of hourly positions.</li>
+<li><strong>"Start"</strong> - marks the first epoch to processable.</li>
+<li><strong>"Stop"</strong> - marks the last epoch to processable.</li>
+<li><strong>"Session duration"</strong> - this is useful to limit the number of epochs to batch process, or to get solutions at higher rates. Pay attention that inserting here a too large number will cause the generation of a huge Normal matrix, the adjustment might use all the free RAM and takes forever to finish. The dimension of the final LS adjustment will depend on the number of observable used (constellations, trackings, ...) and the rate of the data. Frequent session durations are:<ol>
+<li>86400 seconds - will process 24 hours of data all together in a unique LS adjustment;</li>
+<li>3600 seconds - will generate independent (if no buffer is selected) solutions every hour of data to have a series of hourly positions.</li>
 </ol>
 </li>
 <li><strong>"Buffers"</strong> - buffers are an almost unique feature of goGPS, they can be very useful to limit border effects. The epoch in the buffer will concur to the joint LS solution but they will not affect the dimension of the sessions. Only the parameters estimated in the session will be exported in the output receiver object (buffers are never considered).<ol>

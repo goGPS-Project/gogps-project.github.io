@@ -1211,17 +1211,16 @@ END
 <ul>
 <li><strong>-s=<sat_list></strong> - active constellations (e.g. -s=GRE)</li>
 <li><strong>@<rate></strong>       - processing rate in seconds (e.g. @30s, -r=30s)</li>
-<li><strong>--iono</strong>        - reduce the system of normal equations for the ionospheric delay - this is an option to enable only for long baselines when the ionospheric effect on the network receivers cannot be neglected </li>
 <li><strong>L<band></strong>       - band to be used for single frequency adjustment (e.g. L1)</li>
-<li><strong>--free</strong>        - when the stations are distant (long baselines) they can be considered uncorrelated, use this flag to compute absolute coordinate position</li>
+<li><strong>--free</strong>        - when the stations are distant (long baselines) they can be considered uncorrelated, use this flag to compute an absolute coordinate position</li>
 <li><strong>COO_CRD</strong>       - export coordinates as a .CRD file - this export have been created for debugging testing but it is unsupported, use the <code>EXPORT</code> command instead</li>
-<li><strong>--clk</strong>         - export the common parameter in network - this export have been created for testing purposes of the combbined engine but it is unsupported</li>
-<li><strong>-u</strong>            - (flag) use the <strong>U</strong>ncombined engine</li>
+<li><strong>--clk</strong>         - export the common parameter in network - this export have been created for testing purposes of the combined engine but it is unsupported</li>
+<li><strong>-u</strong>            - (flag) use the <strong>U</strong>ncombined engine (the old combined engine for the network adjustment is deprecated, the uncombined version will be always used)</li>
 </ul>
 <p><strong>Tip:</strong> </p>
 <p>The uncombined engine for Network solutions is slower than the combined version but it can perform better and works on <strong>long baselines</strong>.</p>
 <p><strong>Usage example:</strong></p>
-<pre><code>NET T* R1 -IONO -U
+<pre><code>NET T* R1
 </code></pre>
 
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
@@ -1393,14 +1392,22 @@ PKILL
 <li><strong>OCS</strong> -                Outliers and cycle slips - (one plot per receiver)</li>
 <li><strong>OCSP</strong> -               Outliers and cycle slips (polar plot) - (one plot per receiver)</li>
 <li><strong>RES</strong> -                Residual plot - (one plot per receiver)</li>
-<li><strong>RES_O_COS</strong> -          Output combined residuals - (one plot per receiver)</li>
-<li><strong>RES_W_COS</strong> -          Work-Space combined residuals - (one plot per receiver)</li>
-<li><strong>RES_O_PRS</strong> -          Output combined pseudo-range residuals - (one plot per receiver)</li>
-<li><strong>RES_W_PRS</strong> -          Work-Space combined pseudo-range residuals - (one plot per receiver)</li>
-<li><strong>RES_O_PHS</strong> -          Output combined phase residuals - (one plot per receiver)</li>
-<li><strong>RES_W_PHS</strong> -          Work-Space combined phase residuals - (one plot per receiver)</li>
-<li><strong>RES_SKY</strong> -            Residual sky plot - (one plot per receiver)</li>
-<li><strong>RES_SKYP</strong> -           Residual sky plot (polar plot) - (one plot per receiver)</li>
+<li><strong>RES_O_PR</strong> -           Output pseudo-range residuals - (one plot per receiver)</li>
+<li><strong>RES_W_PR</strong> -           Work-Space pseudo-range residuals - (one plot per receiver)</li>
+<li><strong>RES_O_PH</strong> -           Output phase residuals - (one plot per receiver)</li>
+<li><strong>RES_W_PH</strong> -           Work-Space phase residuals - (one plot per receiver)</li>
+<li><strong>RES_O_PR_STAT</strong> -      Output pseudo-range residuals statistics - (one plot per receiver)</li>
+<li><strong>RES_W_PR_STAT</strong> -      Work-Space pseudo-range residuals statistics - (one plot per receiver)</li>
+<li><strong>RES_O_PH_STAT</strong> -      Output phase residuals statistics - (one plot per receiver)</li>
+<li><strong>RES_W_PH_STAT</strong> -      Work-Space phase residuals statistics - (one plot per receiver)</li>
+<li><strong>RES_O_PR_SKY</strong> -       Output pseudo-range residuals cartesian sky plot- (one plot per receiver)</li>
+<li><strong>RES_W_PR_SKY</strong> -       Work-Space pseudo-range residuals cartesian sky plot- (one plot per receiver)</li>
+<li><strong>RES_O_PH_SKY</strong> -       Output phase residuals cartesian sky plot- (one plot per receiver)</li>
+<li><strong>RES_W_PH_SKY</strong> -       Work-Space phase residuals cartesian sky plot- (one plot per receiver)</li>
+<li><strong>RES_O_PR_SKYP</strong> -       Output pseudo-range residuals polar sky plot- (one plot per receiver)</li>
+<li><strong>RES_W_PR_SKYP</strong> -       Work-Space pseudo-range residuals polar sky plot- (one plot per receiver)</li>
+<li><strong>RES_O_PH_SKYP</strong> -       Output phase residuals polar sky plot- (one plot per receiver)</li>
+<li><strong>RES_W_PH_SKYP</strong> -       Work-Space phase residuals polar sky plot- (one plot per receiver)</li>
 <li><strong>PTH</strong> -                Pressure / Temperature / Humidity - (one plot per receiver)</li>
 <li><strong>NSAT</strong> -               Number of satellite used (multi-receiver)</li>
 <li><strong>NSATSS</strong> -             Number of satellite used (sys by sys) - (one plot per receiver)</li>
@@ -1505,11 +1512,12 @@ SHOW T* ZTD
 <p><a href="#index-of-contents">Go back to the Index of contents</a></p>
 <hr />
 <h2 id="multipath-management">Multipath management</h2>
-<p>goGPS integrates the possibility of creating and using multipath maps to mitigate the effect of reflections in the GNSS carrier-phase signals. We create our maps by processing a long period of data (10 days minimum are suggested) with the goGPS uncombined engine. From the obtained carrier phase residuals we can then generate maps of the common "geographical" errors in the polar coordinate system (e.g. Multipath effects coming from structures are always affecting the signals the same way, so each satellite transmitting from a certain elevation and angle is always affected by the same multipath disturbance). Multipath maps can be then used to mitigate the range errors allowing a better positioning. Our preliminary test shows that coordinates estimated for short sessions (e.g. every 15 minutes/hourly) can be improved by about 15-30% depending on the level of multipath.</p>
+<p>goGPS integrates the possibility of creating and using multipath maps to mitigate the effect of reflections in the GNSS carrier-phase signals. We create our maps by processing a long period of data (10 days minimum are suggested) with the goGPS engine. From the obtained carrier phase residuals we can then generate maps of the common "geographical" errors in the polar coordinate system (e.g. Multipath effects coming from structures are always affecting the signals the same way, so each satellite transmitting from a certain elevation and angle is always affected by the same multipath disturbance). Multipath maps can be then used to mitigate the range errors allowing a better positioning. Our preliminary test shows that coordinates estimated for short sessions (e.g. every 15 minutes/hourly) can be improved by about 15-30% depending on the level of multipath.</p>
+<p>goGPS can apply multipath maps of RAW observations in the step of <code>PREPRO</code>, if maps of iono-free combinations are present they will be applied in the generation of the static PPP system, combined maps will not modify the observations directly.</p>
 <p>Before interpolating the residuals these are selected by filtering the worse observations, in particular in addition to the snooping methods applied in the PPP/NET solutions a 3sigma threshold is used to discard outliers. Residuals falling in a bin of 1 degree in latitude and 360 in longitude are used to evaluate latitude by latitude the variance of the residuals, all the observation above the 3sigma level are ignored in the interpolation process (about 1-1.5% of the data are usually disregarded).</p>
 <p><img alt="Residuals and outliers" src="../images/ResOutliers.png?raw=true" /></p>
 <p>To regularize the solution for each cell of 1x1 degree with less than 2 observations 1 null pseudo-observation is added to the dataset to be interpolated.</p>
-<p>For each frequency present in the receiver, a multi-step procedure is used to generate the goGPS multipath maps
+<p>For each frequency (or combination) present in the receiver, a multi-step procedure is used to generate the goGPS multipath maps
 1. Uncombined carrier-phase residuals are all used in a LS solution to compute the <a href="https://www.osapublishing.org/abstract.cfm?uri=josa-66-3-207">Zernike expansion</a> coefficients up to degree 43 (can be changed in the code). These coefficients are then used to synthesize a map of 0.5x0.5 degree in the cartesian coordinate system elevation x azimuth (180x720). Zernike polynomials are good to map low degree changes on the disk (e.g. PCV) but for Multipath maps, a higher degree is preferable. Zernike polynomials are capable of describing changes in the signal depending on the distance from the center of the disk, with a radius close to 1, higher frequencies can be represented. In goGPS we perform 3 analyses at the same degree level using 3 mapping functions to map the elevation to the unitary radius so that we can better describe the undulations due to multipath. The two mapping functions are:
    <script type="math/tex; mode=display"> MF1 = cos(el)^2</script>
 <script type="math/tex; mode=display"> MF2 = sin(pi/2 * cos(el)^2)</script>
@@ -1528,7 +1536,7 @@ SHOW T* ZTD
 <p><img alt="MP final maps" src="../images/MP_Final.png?raw=true" />
 <em>On the left the smoother solution, on the right the highest details of the staking are preserved</em></p>
 <h3 id="mpest">MPEST</h3>
-<p>The command MPEST can be used on a target receiver previously processed in PPP/NET with the uncombined engine that still contains uncombined phase residuals. It automatically generates two maps for each frequency: one estimated from Zernike interpolation and the second by simple stacking. If multipath mitigation is enabled, at the end of the computations, the command applies the corrections to the phase observations contained into the receiver. The result of the command is stored in the obj of class GNSS_Staion in the field ant_mp.</p>
+<p>The command MPEST can be used on a target receiver previously processed in PPP/NET with that still contains phase residuals. It automatically generates two maps for each observation combination (or RAW): one estimated from Zernike interpolation and the second by simple stacking. If multipath mitigation is enabled, and uncombined residuals are present, at the end of the computations, the command applies the corrections to the phase observations contained into the receiver. The result of the command is stored in the obj of class GNSS_Staion in the field ant_mp.</p>
 <p>Use <code>EXPORT T* MP</code> to export a multipath map.</p>
 <p><strong>Usage example:</strong></p>
 <p><em>Multipath maps creation</em></p>
