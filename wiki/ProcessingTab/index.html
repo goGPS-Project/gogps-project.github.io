@@ -347,6 +347,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#mpest-options" class="md-nav__link">
+    MPEST Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#common-processing-options" class="md-nav__link">
     Common Processing Options
   </a>
@@ -620,6 +627,17 @@ The list of corrections that can be applied to the GNSS observations are:</p>
 </ul>
 <p><img alt="MP final maps" src="../images/MP_Final.png?raw=true" />
 <em>On the left the smoother solution, on the right the highest details of the staking are preserved</em></p>
+<p><a href="./../Settings/#index-of-contents">Go back to the Index of contents</a></p>
+<h3 id="mpest-options">MPEST Options</h3>
+<p>This section is dedicated to the settings for the creation of the multipath maps, for more information see also: <strong><a href="./../Command-language#multipath-management">Multipath management</a></strong>. 
+6 grids are created by goGPS each with his own positive and negative aspects. Here follows the main settings for their creation, set them to zero to avoid their calculations:
+* <strong>Regular grid [n x m]</strong> dimension of grid in degrees. This is the simplest gridding with costant dimension cells in azimuth and elevation.
+* <strong>Regular smoothed [n x m]</strong> dimension of this grid in degrees. With respect to the first grid this uses additional pseudo observations in empty cells and the final result is upscaled to a 0.5 x 0.5 degree grid.
+* <strong>Congruent grid [n x m]</strong> set the dimension of this grid in degrees. This is a congruent cells grid, meaning that increasing the elevation the number of cells decreases (they get larger in azimuth). This grid is then scaled to a regular grid.
+* <strong>Congruent smoothed grid [n x m]</strong> set the dimension of this grid in degrees. Similarly to the regular smoothed this grid is upscaled to a regular 0.5 x 0.5 degree grid
+* <strong>Zernike max degrees</strong> set the degree of expansion to create a 0.5 x 0.5 smooth regular grid. The three entries are three expansions that can enhance the frequency close to the horizon, to the middle elevations and to the zenith.
+* <strong>Additional congruent smoothed grid [n x m]</strong> set the dimension of this grid in degrees. This grid is upscaled to a regular 0.5 x 0.5 degree and summed to the Zernike grid.
+* <strong>Min obs per cell</strong> For non Zernike gridding this represent the minimum number of observations per cell to get a valid value. If this threshold is not reached the cell will be set to zero.</p>
 <p><a href="./../Settings/#index-of-contents">Go back to the Index of contents</a></p>
 <h3 id="common-processing-options">Common Processing Options</h3>
 <ul>

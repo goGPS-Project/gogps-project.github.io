@@ -1514,7 +1514,7 @@ SHOW T* ZTD
 <h2 id="multipath-management">Multipath management</h2>
 <p>goGPS integrates the possibility of creating and using multipath maps to mitigate the effect of reflections in the GNSS carrier-phase signals. We create our maps by processing a long period of data (10 days minimum are suggested) with the goGPS engine. From the obtained carrier phase residuals we can then generate maps of the common "geographical" errors in the polar coordinate system (e.g. Multipath effects coming from structures are always affecting the signals the same way, so each satellite transmitting from a certain elevation and angle is always affected by the same multipath disturbance). Multipath maps can be then used to mitigate the range errors allowing a better positioning. Our preliminary test shows that coordinates estimated for short sessions (e.g. every 15 minutes/hourly) can be improved by about 15-30% depending on the level of multipath.</p>
 <p>goGPS can apply multipath maps of RAW observations in the step of <code>PREPRO</code>, if maps of iono-free combinations are present they will be applied in the generation of the static PPP system, combined maps will not modify the observations directly.</p>
-<p>Before interpolating the residuals these are selected by filtering the worse observations, in particular in addition to the snooping methods applied in the PPP/NET solutions a 3sigma threshold is used to discard outliers. Residuals falling in a bin of 1 degree in latitude and 360 in longitude are used to evaluate latitude by latitude the variance of the residuals, all the observation above the 3sigma level are ignored in the interpolation process (about 1-1.5% of the data are usually disregarded).</p>
+<p>Before interpolating the residuals these are selected by filtering the worse observations, in particular, in addition to the snooping methods applied in the PPP/NET solutions, a 3sigma threshold is used to discard outliers. Residuals falling in a bin of 1 degree in latitude and 360 in longitude are used to evaluate latitude by latitude the variance of the residuals, all the observation above the 3sigma level are ignored in the interpolation process (about 1-1.5% of the data are usually disregarded).</p>
 <p><img alt="Residuals and outliers" src="../images/ResOutliers.png?raw=true" /></p>
 <p>To regularize the solution for each cell of 1x1 degree with less than 2 observations 1 null pseudo-observation is added to the dataset to be interpolated.</p>
 <p>For each frequency (or combination) present in the receiver, a multi-step procedure is used to generate the goGPS multipath maps
@@ -1528,15 +1528,22 @@ SHOW T* ZTD
 <p><img alt="MP Step 1, 2" src="../images/MP_Steps_1_2.png?raw=true" />
 <em>The figures show the maps retrieved from the first two iterations of the Zernike based interpolation for the WTZZ station.</em></p>
 <ol>
-<li>Stacking maps can be generated from the residuals of the previous step that provides an interpolation of the lower frequencies. The gridding procedure uses cells of 5 degrees in longitude and 1 in latitude, for each cell the mean is taken, each value is converted in polar coordinates and a final grid at the resolution of 0.5 degrees in cartesian coordinate (elevation x azimuth) is created by bi-linear interpolation in the polar coordinate system.</li>
+<li>Stacking maps can be generated from the residuals of the previous step that provides an interpolation of the lower frequencies. The gridding procedure uses congruent cells, for each cell the mean is taken, each value is converted in polar coordinates and a final grid at the resolution of 0.5 degrees in cartesian coordinate (elevation x azimuth) is created by bi-linear interpolation in the polar coordinate system.</li>
 </ol>
 <p><img alt="MP Step 3" src="../images/MP_Steps_3_4.png?raw=true" />
 <em>These are the third iteration and the final gridding step on the residuals of the WTZZ station.</em></p>
 <p>At the end, the maps are summed all together to generate two possible applicable models, the first smoother, and the second containing the higher frequencies of the staking map. The user can decide the map that works best in his project by selecting it in the settings.</p>
 <p><img alt="MP final maps" src="../images/MP_Final.png?raw=true" />
 <em>On the left the smoother solution, on the right the highest details of the staking are preserved</em></p>
+<p>In addition to these two grids goGPS will create other four grids starting from the residuasls. This is useful for comparison of the methods and testing.</p>
+<ul>
+<li>two <strong>Regular grids</strong> are estimated. One using only the observation available and another adding zeros observations in cell of 1x1 that are empty and upscaling it linearly to a 0.5x0.5 degree grid.</li>
+<li>two <strong>Congruent cells grids</strong> are estimated. One using only the observation available and another adding zeros observations in cell of 1x1 that are empty and upscaling it linearly to a 0.5x0.5 degree grid. The number of cells of a congruent grid decrease with the increase of the elevation. See also: <a href="https://link.springer.com/article/10.1007/s10291-014-0367-7">Fuhrman et al 2015</a></li>
+</ul>
+<p><img alt="MP final maps" src="../images/CongruentCellGrid.png?raw=true" />
+<em>Example of a congruent grid showing how the number of cells decrease with elevation</em></p>
 <h3 id="mpest">MPEST</h3>
-<p>The command MPEST can be used on a target receiver previously processed in PPP/NET with that still contains phase residuals. It automatically generates two maps for each observation combination (or RAW): one estimated from Zernike interpolation and the second by simple stacking. If multipath mitigation is enabled, and uncombined residuals are present, at the end of the computations, the command applies the corrections to the phase observations contained into the receiver. The result of the command is stored in the obj of class GNSS_Staion in the field ant_mp.</p>
+<p>The command MPEST can be used on a target receiver previously processed in PPP/NET with that still contains phase residuals. It automatically generates six maps for each observation combination (or RAW): one estimated from Zernike interpolation and the second by simple stacking, plus two regular grids and two congruent grids. If multipath mitigation is enabled, and uncombined residuals are present, at the end of the computations, the command applies the corrections to the phase observations contained into the receiver. The result of the command is stored in the obj of class GNSS_Staion in the field ant_mp.</p>
 <p>Use <code>EXPORT T* MP</code> to export a multipath map.</p>
 <p><strong>Usage example:</strong></p>
 <p><em>Multipath maps creation</em></p>
