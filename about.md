@@ -29,7 +29,7 @@ Developers of the original core:
 Founding fathers:
 
 * Alessio Dominioni
-* Roberto Terruzzi
+* Roberto Teruzzi
 * Marco Colla
 * Marcello Palmulli
 * Michele Tettamanti
@@ -44,7 +44,7 @@ Contributors (in temporal order):
 * Ivan Reguzzoni
 * Stefano Caldera
 * Damiano Triglione
-* Giuliano Sirioni
+* Giuliano Sironi
 * Antonio Herrera Olmo
 * Andrea Gatti
 * Hendy F. Suhandri
