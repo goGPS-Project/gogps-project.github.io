@@ -1,4 +1,17 @@
 // You can add CSS rules here that will be included in Hydejack's CSS file
+
+// GReD logo home
+hy-drawer a img {
+  margin: auto;
+  padding-top: 10px;
+}
+
+// main page description
+hy-drawer p {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 .simage_block {
     display: block;
     border: 0px;
